@@ -1,29 +1,21 @@
 import json
 
-# Чтение из JSON файла
+# Чтение из JSON файлов
 
 dataBase = {}
+txtBase = ["things.json", "things1.json"]
 
-with open('things.json') as json_file, open('things1.json') as json_file2:
-    data = json.load(json_file)
-    data1 = {}
-#    data1 = json.load(json_file2)
-    print(data)
-    for p in data:
-        dataBase[p['name']] = [p['link']]
-
-#    for p in data1:
-#        if not (p['name'] in dataBase):
-#            dataBase[p['name']] = [p['link']]
-#        else:
-#            oldLinks = dataBase.pop(p['name'])
-#            linksBase = [p['link'], oldLinks]
+for input_txt in txtBase:
+    with open(input_txt, "r") as json_file:
+        data = json.loads(json_file.read())
+        print(data)
+        for p in data:
+            if not (p['name'] in dataBase):
+                dataBase[p['name']] = [p['link']]
+            else:
+                oldLinks = dataBase.pop(p['name'])
+                linksBase = [p['link'], oldLinks]
+                dataBase[p['name']] = linksBase
 
 print(dataBase)
-
-#        print('Name: ' + p['name'])
-#        print('Price: ' + p['price'])
-#        print('Website: ' + p['link'])
-#        print('')
-
 
