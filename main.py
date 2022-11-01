@@ -3,19 +3,23 @@ import json
 # Чтение из JSON файлов
 
 dataBase = {}
-txtBase = ["things.json", "things1.json"]
+txtBase = ["things.json", "things1.json", "things2.json"]
 
 for input_txt in txtBase:
     with open(input_txt, "r") as json_file:
         data = json.loads(json_file.read())
         print(data)
         for p in data:
-            if not (p['name'] in dataBase):
-                dataBase[p['name']] = [p['link']]
+            lowerName = p['name'].lower()
+            name = "".join(c for c in lowerName if c.isalnum())
+            if not (name in dataBase):
+                dataBase[name] = [p['link']]
             else:
-                oldLinks = dataBase.pop(p['name'])
-                linksBase = [p['link'], oldLinks]
-                dataBase[p['name']] = linksBase
+                oldLinks = dataBase.pop(name)
+                oldLinks.append(p['link'])
+                dataBase[name] = oldLinks
 
 print(dataBase)
+
+
 
