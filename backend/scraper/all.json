@@ -1,0 +1,44 @@
+[
+  {
+    "name" : "Мышь беспроводная Logitech M190 (910-005906)",
+    "manufacturer" : "Logitech",
+    "cost" : 1399,
+    "category" : "mouse",
+    "url" : "https://www.mvideo.ru/products/mysh-besprovodnaya-logitech-m190-910-005906-50142701",
+    "shop" : "mvideo",
+    "pictures" : [
+      "img.mvideo.ru/Big/50142701bb.jpg",
+      "img.mvideo.ru/Big/50142701bb1.jpg",
+      "img.mvideo.ru/Big/50142701bb2.jpg",
+      "img.mvideo.ru/Big/50142701bb3.jpg"
+    ]
+  },
+  {
+    "name" : "Мышь беспроводная Logitech PRO X SUPERLIGHT [910-005880] черный",
+    "manufacturer" : "Logitech",
+    "cost" : 13999,
+    "category" : "mouse",
+    "url" : "https://www.dns-shop.ru/product/e9f1ea4d3d9f1b80/mys-besprovodnaa-logitech-pro-x-superlight-910-005880-cernyj/",
+    "shop" : "dns",
+    "pictures" : [
+      "https://c.dns-shop.ru/thumb/st4/fit/500/500/d7aa27ae6cf06d51a7d3661900e526fa/f83717ae202b0646bd41f810f464bbe14e0bba68837c12f98c8303faee611abc.jpg",
+      "https://c.dns-shop.ru/thumb/st1/fit/500/500/84b654c1ae2a15dcedfa62e66c6f3f7d/e09eea2b90181a6269e27f9e7036942e283239360183f857dc8c6cf179b0f302.jpg",
+      "https://c.dns-shop.ru/thumb/st1/fit/500/500/9544255579eb35db5db5850b01ff01f5/ea4e3c20757f89ac343a739fac10ce6a570b17d0c671887c5f064d263b002183.jpg",
+      "https://c.dns-shop.ru/thumb/st4/fit/500/500/3f884a52524a1b2dd9ba21b29e5b31dd/7288b3a69782273fabc49771cf2b908e5241a29afc080b64ec910731156d7293.jpg"
+    ]
+  },
+  {
+    "name" : "Клавиатура проводная Red Square Keyrox TKL [RSQ-20030]",
+    "manufacturer" : "Red Square",
+    "cost" : 5999,
+    "category" : "keyboard",
+    "url" : "https://www.dns-shop.ru/product/445d725fcb3fed20/klaviatura-provodnaa-red-square-keyrox-tkl-rsq-20030/",
+    "shop" : "dns",
+    "pictures" : [
+      "https://c.dns-shop.ru/thumb/st1/fit/500/500/5192b288db92b4fcb9a6ff56b4f9984f/948aabb4ec8e9b301fa1ec28f5dc7fba712ab9d931ee22713c42ec94579b53e9.jpg",
+      "https://c.dns-shop.ru/thumb/st1/fit/500/500/94a14e232135f69e36058ce9c2e47a21/33d71931de5861a128f24f7216527597d265aaf5e4753e3e2f5f2dcfbeca2c90.jpg",
+      "https://c.dns-shop.ru/thumb/st4/fit/500/500/8c36e88495d67c403d3ef7c3de7ed221/07c263662147890b7083f007585bea9f158bf5d17b30906b48e1975eb6eae8f7.jpg",
+      "https://c.dns-shop.ru/thumb/st1/fit/500/500/4d34b6c536fcf4b9ad1ae4f3b51e6685/6b1d44af6cfeec84baf52fd32e81c12ab3bb6f5522ad184aca9d24b8d293c7c0.jpg"
+    ]
+  }
+]
