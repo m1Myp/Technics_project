@@ -1,13 +1,14 @@
-from datetime import datetime
-
-from django.shortcuts import render
-from django.http import HttpResponse
-from products.models import Categories, Info, URL, Pictures, Cost
 import json
+import os
+import subprocess
+
+from django.http import HttpResponse
+
+from products.models import Categories, Info, URL, Pictures, Cost
 
 
 def index(request):
-    f = open("scraper/all.json", encoding='utf-8')
+    f = open("spiders/all.json", encoding='utf-8')
     data = json.load(f)
     names = ""
 
@@ -40,9 +41,24 @@ def index(request):
 
         cost = Cost(product_ID=product,
                     product_cost=i["cost"],
-                    last_update=datetime.now()
                     )
         cost.save()
 
         names += i["name"] + "<br>"
     return HttpResponse("БАЗИРУЕМСЯ.............. <br>" + names)
+
+
+def scrap_all(request):
+    cmd = ['venv/Scripts/python', 'spiders/citilink_script.py']
+    process = subprocess.Popen(cmd, env=os.environ)
+    process.wait()
+    return HttpResponse("Скрапим.............. <br>")
+
+
+from rest_framework import viewsets
+from .serializers import Product_serializer
+
+
+class ProductsViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Info.objects.all()
+    serializer_class = Product_serializer

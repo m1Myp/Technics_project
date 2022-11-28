@@ -41,4 +41,4 @@ class Cost(models.Model):
         on_delete=models.CASCADE
     )
     product_cost = models.IntegerField()
-    last_update = models.TimeField()
+    last_update = models.DateTimeField(auto_now=True)
