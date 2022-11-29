@@ -8,7 +8,15 @@ from products.models import Categories, Info, URL, Pictures, Cost
 
 
 def index(request):
-    f = open("spiders/all.json", encoding='utf-8')
+    cmd = ['venv/Scripts/python', 'spiders/citilink_manufacturers.py']
+    process = subprocess.Popen(cmd, env=os.environ)
+    process.wait()
+
+    cmd = ['venv/Scripts/python', 'spiders/citilink_all_script.py']
+    process = subprocess.Popen(cmd, env=os.environ)
+    process.wait()
+
+    f = open("all.json", encoding='utf-8')
     data = json.load(f)
     names = ""
 

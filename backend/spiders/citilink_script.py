@@ -16,7 +16,7 @@ class MySpider(scrapy.Spider):
     def parse(self, response, **kwargs):
         product_name = response.css("h1::text").extract()
         product_name = normalize_str(product_name)[0]
-        print(product_name)
+        # print(product_name)
 
         product_cost = response.css("span.ProductPagePriceSection__default-price_current-price::text").extract()
         product_cost = normalize_int(product_cost)
