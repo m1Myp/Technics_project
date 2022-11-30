@@ -37,28 +37,28 @@ for input_txt in txtBase:
             for tempName in newTempStuff:
                 subname = ''.join(ch for ch in tempName if ch.isalnum()) #Создание токена без мусора только символы и цифры
                 breakFlag = False
-                for color in colors.values():
-                    if subname in color:
+                for color in colors.values():     #Проход по словарю цветов, если есть совпадение добавляем в буфер токена на позицию 2
+                    if subname in color: 
                         anotherTempStuff[2] = color[0]
                         breakFlag = True
                         break
                 if breakFlag:
                     continue
-                for characteristic in characteristics.values():
+                for characteristic in characteristics.values():  #Проход по словарю характеристик, если есть совпадение добавляем в буфер токена на позицию 3
                     if subname == characteristic:
                         anotherTempStuff[3] = subname
                         breakFlag = True
                         break
                 if breakFlag:
                     continue
-                if any(map(str.isdigit, subname)):
+                if any(map(str.isdigit, subname)): #Если в токене есть хотя бы 1 символ он пишется в буфер токена на позицию 1
                     anotherTempStuff[1] += subname
                     breakFlag = True
                     break
                 if breakFlag:
                     continue
-                if re.search(r'[a-z0-9]', subname):
-                    if(subname in engNotNeedWord):
+                if re.search(r'[a-z0-9]', subname): #Если в токене английские буквы, то это название товара
+                    if(subname in engNotNeedWord): #Проверка что это не английское слово которое нам не нужно, типо USB/HDMI/...
                         continue
                     anotherTempStuff[0] += subname
             finalName = ""
