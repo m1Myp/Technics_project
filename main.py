@@ -32,6 +32,7 @@ for input_txt in txtBase:
         for p in data:
             name = p["name"].lower()
             newTempStuff = name.split() #Темпик для создания токенов с помощью сплита, чтобы не каверкать изначальный нейм продукта
+            #Сплит производится по пробелу
             anotherTempStuff = ["", "", "", ""] #Хранитель актуальных токенов в системе
             # fuzz.token_sort_ratio еще кринжовее?
             for tempName in newTempStuff:
@@ -52,6 +53,7 @@ for input_txt in txtBase:
                 if breakFlag:
                     continue
                 if any(map(str.isdigit, subname)): #Если в токене есть хотя бы 1 символ он пишется в буфер токена на позицию 1
+                #Нужно реализовать проверку на наличие в слове скобочек, для игнорирования рандомного кода товара внутри названия
                     anotherTempStuff[1] += subname
                     breakFlag = True
                     break
