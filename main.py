@@ -8,6 +8,8 @@ from string import ascii_letters as en
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 
+
+
 dataBase = {}
 codeDataBase = {}
 txtBase = ["things.json", "things1.json", "things2.json"]
@@ -29,10 +31,11 @@ for input_txt in txtBase:
         print(data)
         for p in data:
             name = p["name"].lower()
-            newTempStuff = name.split()
-            anotherTempStuff = ["", "", "", ""]
+            newTempStuff = name.split() #Темпик для создания токенов с помощью сплита, чтобы не каверкать изначальный нейм продукта
+            anotherTempStuff = ["", "", "", ""] #Хранитель актуальных токенов в системе
+            # fuzz.token_sort_ratio еще кринжовее?
             for tempName in newTempStuff:
-                subname = ''.join(ch for ch in tempName if ch.isalnum())
+                subname = ''.join(ch for ch in tempName if ch.isalnum()) #Создание токена без мусора только символы и цифры
                 breakFlag = False
                 for color in colors.values():
                     if subname in color:
@@ -56,15 +59,25 @@ for input_txt in txtBase:
                     continue
                 if re.search(r'[a-z0-9]', subname):
                     if(subname in engNotNeedWord):
-                        breakFlag = True
-                        break
+                        continue
                     anotherTempStuff[0] += subname
-                if breakFlag:
-                    continue
             finalName = ""
-            for i in range(len(anotherTempStuff)):
-                finalName += anotherTempStuff[i]
+            #Сохранение в буфер anotherTempStuff перед его записью для сравнения
+            for i in range(len(anotherTempStuff)): #Вот эта штука, кстати не обязательно в нашем случае
+                finalName += anotherTempStuff[i]   #, ибо сравниваем не неймы а токены
                 #Реализовать метод замены эмптиблоков на "подходящии" только как....
+            #Просто сравнивать с помощью fuzz.ratio свучит кринжово... и не выгодно
+            #Вот здесь токены должны сравниваться с токенами которые я запишу ранее в отдельный файлик
+            #Токены проверяются по порядку
+            #Разное имя -> новый товар ИНАЧЕ
+            #Разный "номер товара" -> новый товар ИНАЧЕ
+            #Разный цвет -> новый товар ИНАЧЕ
+            #Цвет пуст -> Что-то делаем чтобы сравнить с токенами которые уже существуют
+            #Мои 2 варианта - превращать пустой токен во все токены которые позволяет словарь цветов, ИЛИ
+            #Сделать токены пустыми в тех вещах которые мы сравниваем с этим товаром
+            #Проблема и того и того метода, что он работает до первого вхождения, что не есть good
+            #Если цвет не пуст и совпадает идем дальше
+            #Смотри пункт про цвета, только это пункт про "характеристики" а.ля беспроводная
             if (finalName in dataBase) or (anotherTempStuff[3] in codeDataBase):
                 oldLinks = dataBase.pop(finalName)
                 oldLinks.append(p['link'])
