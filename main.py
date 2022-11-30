@@ -46,13 +46,13 @@ for input_txt in txtBase:
                     continue
                 for characteristic in characteristics.values():
                     if subname == characteristic:
-                        anotherTempStuff[1] = subname
+                        anotherTempStuff[3] = subname
                         breakFlag = True
                         break
                 if breakFlag:
                     continue
                 if any(map(str.isdigit, subname)):
-                    anotherTempStuff[3] += subname
+                    anotherTempStuff[1] += subname
                     breakFlag = True
                     break
                 if breakFlag:
