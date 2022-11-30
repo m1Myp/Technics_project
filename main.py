@@ -62,7 +62,7 @@ for input_txt in txtBase:
                         continue
                     anotherTempStuff[0] += subname
             finalName = ""
-            #Сохранение в буфер anotherTempStuff перед его записью для сравнения
+            #Сюда надо добавить сохранение в буфер anotherTempStuff перед его записью для сравнения
             for i in range(len(anotherTempStuff)): #Вот эта штука, кстати не обязательно в нашем случае
                 finalName += anotherTempStuff[i]   #, ибо сравниваем не неймы а токены
                 #Реализовать метод замены эмптиблоков на "подходящии" только как....
