@@ -3,7 +3,8 @@ from scrapy.crawler import CrawlerProcess
 
 class AliexpresswaresSpider(scrapy.Spider):
     name = 'wares'
-
+    items = open("items.json", "w")
+    items.close()
     def start_requests(self):
         yield scrapy.Request('http://aliexpress.ru/')
     
@@ -18,6 +19,7 @@ class AliexpresswaresSpider(scrapy.Spider):
                 'name': product.css('div.product-snippet_ProductSnippet__name__lido9p::text').get().strip(), 
                 'price': product.css('div.snow-price_SnowPrice__mainM__18x8np::text').get().strip(),
             }
+        
 process = CrawlerProcess(settings = {
     "FEED_FORMAT": "json",
         "FEED_URI": "items.json",
