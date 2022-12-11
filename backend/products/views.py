@@ -2,7 +2,7 @@ import json
 import os
 import subprocess
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from products.models import Categories, Info, URL, Pictures, Cost
 
@@ -47,7 +47,7 @@ def index(request):
                    )
         urlI.save()
 
-        cost = Cost(product_ID=product,
+        cost = Cost(URL_ID=urlI,
                     product_cost=i["cost"],
                     )
         cost.save()
@@ -63,10 +63,27 @@ def scrap_all(request):
     return HttpResponse("Скрапим.............. <br>")
 
 
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from .serializers import Product_serializer
 
 
-class ProductsViewSet(viewsets.ReadOnlyModelViewSet):
+# class ProductsViewSet(viewsets.ReadOnlyModelViewSet):
+#     queryset = Info.objects.all()
+#     serializer_class = Product_serializer
+
+class ProductList(generics.ListAPIView):
     queryset = Info.objects.all()
     serializer_class = Product_serializer
+
+
+# class ProductDetail(generics.RetrieveAPIView):
+#     queryset = Info.objects.all()
+#     serializer_class = Product_serializer
+
+
+def kek(request, product_id):
+    product_id = int(product_id)
+    products = Info.objects.filter(product_ID=product_id)
+    serializer = Product_serializer(products, many=False)
+
+    return JsonResponse(serializer.data, safe=False)

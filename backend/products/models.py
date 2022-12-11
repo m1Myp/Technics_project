@@ -20,6 +20,7 @@ class URL(models.Model):
     URL_ID = models.AutoField(primary_key=True)
     product_ID = models.ForeignKey(
         Info,
+        related_name='urls',
         on_delete=models.CASCADE
     )
     product_URL = models.TextField()
@@ -31,13 +32,15 @@ class Pictures(models.Model):
     picture_URL = models.TextField()
     product_ID = models.ForeignKey(
         Info,
+        related_name='pictures',
         on_delete=models.CASCADE
     )
 
 
 class Cost(models.Model):
-    product_ID = models.OneToOneField(
-        Info,
+    URL_ID = models.OneToOneField(
+        URL,
+        related_name='cost',
         on_delete=models.CASCADE
     )
     product_cost = models.IntegerField()
