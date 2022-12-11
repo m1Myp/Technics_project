@@ -83,7 +83,7 @@ class ProductList(generics.ListAPIView):
 
 def kek(request, product_id):
     product_id = int(product_id)
-    products = Info.objects.filter(product_ID=product_id)
+    products = Info.objects.filter(product_ID=product_id).first()
     serializer = Product_serializer(products, many=False)
 
     return JsonResponse(serializer.data, safe=False)

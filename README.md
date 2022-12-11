@@ -24,3 +24,5 @@ python manage.py runserver
 - перейдя по ссылке http://127.0.0.1:8000/products/ запуститься скрапер и выгрузит все продукты из каталогов указанных в файле spiders/categories_urls.json. После все загрузится в БД.
 - перейдя по ссылке http://127.0.0.1:8000/products/scrap_all запуститься Скрапер(citilink_script.py) одного продукта из Ситилинка, который проскрапит ссылку, хранящуюся в файле url.txt и сохранит резеультаты в файл items.json. БД не как не меняется
 - по ссылке http://127.0.0.1:8000/products/api/v1/test/ будет json file со всеми продуктами
+- по ссылке http://127.0.0.1:8000/products/api/v1/product/<id> будет json file с продуктом product_id которого совпадает с id. 
+Например: http://127.0.0.1:8000/products/api/v1/product/484 отобразится продукт с product_id 484.
