@@ -1,0 +1,169 @@
+<div class="search-page-container">
+  <div class="search-page-frame-searchpage">
+    <img
+      alt="pastedImage"
+      src="/assets/playground_assets/pastedimage-42p-2400h.png"
+      class="search-page-pasted-image"
+    />
+    <header class="search-page-frame-header">
+      <button class="search-page-menuburgerbutton">
+        <img
+          alt="MainmenuI278"
+          src="/assets/playground_assets/mainmenui278-di79-200h.png"
+          class="search-page-mainmenu"
+        />
+        <img
+          alt="MenubuttonI293"
+          src="/assets/playground_assets/menubuttoni293-t8je.svg"
+          class="search-page-menubutton"
+        />
+      </button>
+      <button class="search-page-logobutton">
+        <span class="search-page-text"><span>technics nearby.</span></span>
+      </button>
+      <span class="search-page-text02"><span>войти</span></span>
+    </header>
+    <div class="search-page-searchinputbar">
+      <input type="text" placeholder="Поиск..." class="search-page-textinput" />
+      <a href="/search-page" class="search-page-searchbutton">
+        <img
+          alt="SearchI288"
+          src="/assets/playground_assets/searchi288-7f8.svg"
+          class="search-page-search"
+        />
+      </a>
+    </div>
+    <div class="search-page-optionmenu">
+      <div class="search-page-menu-container">
+        
+        <div class="optionwindow-optionwindow" *ngFor="let element of productData | paginate : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        };
+        let i = index">
+          <div class="optionwindow-priceblock">
+            <span class="optionwindow-text"><span>Цена</span></span>
+            <span class="optionwindow-text02"><span>от</span></span>
+            <span class="optionwindow-text04"><span>до</span></span>
+            <div class="optionwindow-frame14">
+              <div class="optionwindow-frame2">
+                <span class="optionwindow-text06 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text08 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <div class="optionwindow-frame2">
+                <span class="optionwindow-text06 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text08 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <div class="optionwindow-frame2">
+                <span class="optionwindow-text06 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text08 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <div class="optionwindow-frame2">
+                <span class="optionwindow-text06 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text08 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <button class="optionwindow-texthighlightbutton">
+                <span class="optionwindow-text22"><span>Полный список</span></span>
+              </button>
+            </div>
+            <form class="optionwindow-form"></form>
+          </div>
+          <div class="optionwindow-productblock">
+            <span class="optionwindow-text26">{{ element.product_name }}</span>
+            <span class="optionwindow-text24"><span>Характеристики:</span></span>
+            <span class="optionwindow-text27">{{ text }}</span>
+          </div>
+          <form class="optionwindow-form1">
+            <img
+              [attr.alt]="image_alt"
+              [attr.src]="image_src"
+              class="optionwindow-image"
+            />
+          </form>
+        </div>
+
+      </div>
+
+      <div class="d-flex text-white justify-content-center">
+        <pagination-controls
+          previousLabel="Назад"
+          nextLabel="Вперед"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
+
+    </div>
+    <div data-thq="thq-dropdown" class="search-page-thq-dropdown list-item">
+      <div data-thq="thq-dropdown-toggle" class="search-page-dropdown-toggle">
+        <span class="search-page-text04">
+          <span>сортировать по</span>
+          <br />
+        </span>
+        <div data-thq="thq-dropdown-arrow" class="search-page-dropdown-arrow">
+          <svg viewBox="0 0 1024 1024" class="search-page-icon">
+            <path d="M426 726v-428l214 214z"></path>
+          </svg>
+        </div>
+      </div>
+      <ul data-thq="thq-dropdown-list" class="search-page-dropdown-list">
+        <li data-thq="thq-dropdown" class="search-page-dropdown list-item">
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="search-page-dropdown-toggle1"
+          >
+            <span class="search-page-text07">
+              <span>возрастанию цены</span>
+              <br />
+            </span>
+          </div>
+        </li>
+        <li data-thq="thq-dropdown" class="search-page-dropdown1 list-item">
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="search-page-dropdown-toggle2"
+          >
+          <span class="search-page-text10">убыванию цены</span>
+          </div>
+        </li>
+        <li data-thq="thq-dropdown" class="search-page-dropdown2 list-item">
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="search-page-dropdown-toggle3"
+          >
+            <span class="search-page-text11">производителю</span>
+          </div>
+        </li>
+        <li data-thq="thq-dropdown" class="search-page-dropdown3 list-item">
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="search-page-dropdown-toggle4"
+          >
+            <span class="search-page-text12">
+              <span>продавцу</span>
+              <br />
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <form class="search-page-form"></form>
+  </div>
+</div>

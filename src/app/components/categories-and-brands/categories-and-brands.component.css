@@ -1,0 +1,77 @@
+:host { 
+  display: contents; 
+}
+.categories-and-brands-container {
+  width: 462px;
+  height: 50px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+}
+.categories-and-brands-button {
+  top: 15px;
+  color: #ffffff;
+  right: 0px;
+  width: 240px;
+  bottom: 0px;
+  height: 35px;
+  position: absolute;
+  font-size: 18px;
+  align-self: flex-end;
+  text-align: center;
+  font-family: Montserrat;
+  border-width: 0px;
+  border-radius: 15px;
+  background-color: transparent;
+  background-image: linear-gradient(90deg, rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.categories-and-brands-categoriesbutton {
+  top: 0px;
+  left: 0px;
+  width: 240px;
+  height: 50px;
+  display: flex;
+  padding: 0;
+  position: absolute;
+  align-self: auto;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 1;
+  margin-right: 0;
+  border-radius: 15px;
+  margin-bottom: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: transparent;
+  background-image: linear-gradient(90deg, rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.categories-and-brands-text {
+  top: 15px;
+  left: 70px;
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  align-self: auto;
+  font-style: Medium;
+  text-align: center;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.categories-and-brands-root-class-name {
+  top: 165px;
+  left: 255px;
+  position: absolute;
+}
+.categories-and-brands-root-class-name1 {
+  top: 165px;
+  left: 255px;
+  position: absolute;
+}
