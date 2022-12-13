@@ -23,10 +23,9 @@ export class SearchPage implements OnInit{
   page = 1;
   count = 0;
   tableSize = 7;
-  tableSizes = [3, 6, 9, 12];
 
   public productData: InfoArray = [];
-  product: Info | null = null;
+  public product: Info | null = null;
   public productNumber: number = 0;
 
   constructor(private testService: TestService) { }
@@ -51,11 +50,6 @@ export class SearchPage implements OnInit{
 
   onTableDataChange(event: any) {
     this.page = event;
-    this.getTest();
-  }
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
     this.getTest();
   }
 }

@@ -19,7 +19,7 @@
   font-size: 18px;
   align-self: flex-end;
   text-align: center;
-  font-family: Montserrat;
+  font-family: Montserrat Alternates;
   border-width: 0px;
   border-radius: 15px;
   background-color: transparent;
@@ -59,18 +59,13 @@
   align-self: auto;
   font-style: Medium;
   text-align: center;
-  font-family: Montserrat;
+  font-family: Montserrat Alternates;
   font-weight: 500;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 .categories-and-brands-root-class-name {
-  top: 165px;
-  left: 255px;
-  position: absolute;
-}
-.categories-and-brands-root-class-name1 {
   top: 165px;
   left: 255px;
   position: absolute;

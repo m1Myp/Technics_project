@@ -1,10 +1,7 @@
+<body style="background-color: #0C0D18; background-image: url(/assets/playground_assets/pastedimage-42p-2400h.png);
+background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
 <div class="product-page-container">
   <div class="product-page-frame-productpage">
-    <img
-      alt="pastedImage"
-      src="/assets/playground_assets/pastedimage-o5e-1100h.png"
-      class="product-page-pasted-image"
-    />
     <div class="product-page-productblock"></div>
     <button class="product-page-goodsmenubuttons">
       <button class="product-page-brandsbutton">
@@ -24,26 +21,16 @@
         <span class="product-page-text02"><span>описание</span></span>
       </button>
     </button>
+    <form class="product-page-imageblock"></form>
     <img
-      alt="Imageblock2997"
-      src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/732ddf45-14b8-495e-ba39-92217d288e4b/b1d72934-4fbe-47c7-8a37-2caff5421aec?org_if_sml=14222"
-      class="product-page-imageblock"
-    />
-    <img
-      alt="Imageblock2997"
-      src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/732ddf45-14b8-495e-ba39-92217d288e4b/d5ea0edb-60e4-417b-b958-c7208a283305?org_if_sml=11074"
+      src = "{{ productData.pictures[0].picture_URL }}"
       class="product-page-imageblock1"
     />
     <span class="product-page-text04">
-      <span class="product-page-text05">
-        Полное название
-        <span [innerHTML]="raw6aot"></span>
-      </span>
-      <span>(модель)</span>
+      {{ productData.product_name }}
     </span>
     <span class="product-page-text07"><span>Цена</span></span>
-    <span class="product-page-text09"><span>от</span></span>
-    <span class="product-page-text11"><span>до</span></span>
+    <span class="product-page-text09"><span> {{ productData.urls[0].cost.product_cost }} руб</span></span>
     <span class="product-page-text13"><span>Описание</span></span>
     <header class="product-page-frame-header">
       <button class="product-page-menuburgerbutton">
@@ -80,3 +67,4 @@
     </div>
   </div>
 </div>
+</body>

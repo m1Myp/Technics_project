@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core'
-import { Title, Meta } from '@angular/platform-browser'
+import { Component, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
+
+import { TestService } from "../../test.service";
+import { Info } from "../../test-contracts";
 
 @Component({
   selector: 'product-page',
@@ -8,18 +12,35 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['product-page.component.css'],
 })
 export class ProductPage implements OnInit {
-  raw6aot: string = ''
-  id: number | null = null;
+  id: number = 0;
+  public productData: Info = <Info> {
+    product_ID: '',
+    product_name: '',
+    product_manufacturer: '',
+    pictures: [],
+    urls: []
+  };
 
-  constructor (private route: ActivatedRoute) {
+  constructor (private route: ActivatedRoute, private testService: TestService) {
     this.route.params.subscribe(data => {
-      console.log(data);
+      this.id = data['id'];
     })
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.id = params['id'];
-    });
+    this.getProduct();
+  }
+
+  getProduct() {
+    this.testService.getProduct(this.id).subscribe(
+      {
+        next: (data) => {
+          this.productData = data;
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      }
+      );
   }
 }

@@ -1,10 +1,7 @@
+<body style="background-color: #0C0D18; background-image: url(/assets/playground_assets/pastedimage-42p-2400h.png);
+background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
 <div class="search-page-container">
   <div class="search-page-frame-searchpage">
-    <img
-      alt="pastedImage"
-      src="/assets/playground_assets/pastedimage-42p-2400h.png"
-      class="search-page-pasted-image"
-    />
     <header class="search-page-frame-header">
       <button class="search-page-menuburgerbutton">
         <img
@@ -52,14 +49,14 @@
                   <span> <a href="{{ element.urls[0].product_URL }}" target="_blank">{{ element.urls[0].product_shop }}</a> </span>
                 </span>
                 <span class="optionwindow-text08 MontserratText">
-                  <span> {{ element.urls[0].cost.product_cost }} руб. </span>
+                  <span> {{ element.urls[0].cost.product_cost }} руб </span>
                 </span>
               </div>
               
               <div class="optionwindow-texthighlightbutton">
                 <span class="optionwindow-text22">
                   <span>
-                  <a href="/products/product-page" class="text">Полный список</a>
+                  <a href="/products/product-page/{{ element.product_ID }}" class="text">Полный список</a>
                 </span>
                 </span>
               </div>
@@ -67,7 +64,7 @@
             <form class="optionwindow-form"></form>
           </div>
           <div class="optionwindow-productblock">
-            <span class="optionwindow-text26"><a href="/products/product-page" class="text">{{ element.product_name }}</a></span>
+            <span class="optionwindow-text26"><a href="/products/product-page/{{ element.product_ID }}" class="text">{{ element.product_name }}</a></span>
             <span class="optionwindow-text24"><span>Характеристики:</span></span>
             <span class="optionwindow-text27">{{ text }}</span>
           </div>
@@ -82,7 +79,7 @@
       </div>
 
       <div class="d-flex text-white justify-content-center">
-        <pagination-controls
+        <pagination-controls style="font-family: Montserrat;"
           previousLabel="Назад"
           nextLabel="Вперед"
           (pageChange)="onTableDataChange($event)"
@@ -120,7 +117,7 @@
             data-thq="thq-dropdown-toggle"
             class="search-page-dropdown-toggle2"
           >
-          <span class="search-page-text10">убыванию цены</span>
+          <span class="search-page-text07">убыванию цены</span>
           </div>
         </li>
         <li data-thq="thq-dropdown" class="search-page-dropdown2 list-item">
@@ -128,7 +125,7 @@
             data-thq="thq-dropdown-toggle"
             class="search-page-dropdown-toggle3"
           >
-            <span class="search-page-text11">производителю</span>
+            <span class="search-page-text07">производителю</span>
           </div>
         </li>
         <li data-thq="thq-dropdown" class="search-page-dropdown3 list-item">
@@ -136,7 +133,7 @@
             data-thq="thq-dropdown-toggle"
             class="search-page-dropdown-toggle4"
           >
-            <span class="search-page-text12">
+            <span class="search-page-text07">
               <span>продавцу</span>
               <br />
             </span>
@@ -147,3 +144,4 @@
     <form class="search-page-form"></form>
   </div>
 </div>
+</body>
