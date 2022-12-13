@@ -25,7 +25,7 @@
     </header>
     <div class="search-page-searchinputbar">
       <input type="text" placeholder="Поиск..." class="search-page-textinput" />
-      <a href="/search-page" class="search-page-searchbutton">
+      <a href="/products/search-page" class="search-page-searchbutton">
         <img
           alt="SearchI288"
           src="/assets/playground_assets/searchi288-7f8.svg"
@@ -49,51 +49,31 @@
             <div class="optionwindow-frame14">
               <div class="optionwindow-frame2">
                 <span class="optionwindow-text06 MontserratText">
-                  <span>Магазин</span>
+                  <span> <a href="{{ element.urls[0].product_URL }}" target="_blank">{{ element.urls[0].product_shop }}</a> </span>
                 </span>
                 <span class="optionwindow-text08 MontserratText">
-                  <span>Цена</span>
+                  <span> {{ element.urls[0].cost.product_cost }} руб. </span>
                 </span>
               </div>
-              <div class="optionwindow-frame2">
-                <span class="optionwindow-text06 MontserratText">
-                  <span>Магазин</span>
+              
+              <div class="optionwindow-texthighlightbutton">
+                <span class="optionwindow-text22">
+                  <span>
+                  <a href="/products/product-page" class="text">Полный список</a>
                 </span>
-                <span class="optionwindow-text08 MontserratText">
-                  <span>Цена</span>
-                </span>
-              </div>
-              <div class="optionwindow-frame2">
-                <span class="optionwindow-text06 MontserratText">
-                  <span>Магазин</span>
-                </span>
-                <span class="optionwindow-text08 MontserratText">
-                  <span>Цена</span>
                 </span>
               </div>
-              <div class="optionwindow-frame2">
-                <span class="optionwindow-text06 MontserratText">
-                  <span>Магазин</span>
-                </span>
-                <span class="optionwindow-text08 MontserratText">
-                  <span>Цена</span>
-                </span>
-              </div>
-              <button class="optionwindow-texthighlightbutton">
-                <span class="optionwindow-text22"><span>Полный список</span></span>
-              </button>
             </div>
             <form class="optionwindow-form"></form>
           </div>
           <div class="optionwindow-productblock">
-            <span class="optionwindow-text26">{{ element.product_name }}</span>
+            <span class="optionwindow-text26"><a href="/products/product-page" class="text">{{ element.product_name }}</a></span>
             <span class="optionwindow-text24"><span>Характеристики:</span></span>
             <span class="optionwindow-text27">{{ text }}</span>
           </div>
           <form class="optionwindow-form1">
             <img
-              [attr.alt]="image_alt"
-              [attr.src]="image_src"
+              src = "{{element.pictures[0].picture_URL}}"
               class="optionwindow-image"
             />
           </form>

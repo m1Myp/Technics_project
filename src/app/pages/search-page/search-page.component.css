@@ -228,7 +228,7 @@
   position: absolute;
   align-items: flex-end;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
 }
 .search-page-thq-dropdown {
   top: 165px;
@@ -491,7 +491,7 @@
   border-color: transparent;
   border-radius: 10px;
   margin-right: 0p0x;
-  margin-bottom: 0px;
+  margin-bottom: 40px;
   justify-content: flex-start;
   background-color: #ffffff;
 }
@@ -719,12 +719,12 @@
   align-items: center;
   border-radius: 10px;
   justify-content: center;
-  background-color: #b3b3b3;
+  background-color: #ffffff;
 }
 .optionwindow-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:contain;
   border-radius: 10px;
 }
 
@@ -739,4 +739,9 @@ textarea:focus, input:focus{
 ul {
   padding-left: 0;
   list-style-type:none;
+}
+
+a.text:active, a.text:hover, a.text {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }

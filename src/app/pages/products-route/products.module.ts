@@ -15,7 +15,7 @@ import { ProductPage } from '../../pages/product-page/product-page.component'
 
 @NgModule({
   declarations: [
-    ProductsComponent, MainPage, SearchPage, ProductPage
+    ProductsComponent
   ],
   imports: [
     BrowserModule, 
