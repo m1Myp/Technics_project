@@ -1,23 +1,26 @@
 import json
 import os
+from subprocess import Popen, PIPE
 import subprocess
 
 from django.http import HttpResponse, JsonResponse
 
 from products.models import Categories, Info, URL, Pictures, Cost
+from rest_framework import viewsets, generics
+from .serializers import Product_serializer
 
 
 def index(request):
     cmd = ['venv/Scripts/python', 'spiders/citilink_manufacturers.py']
-    process = subprocess.Popen(cmd, env=os.environ)
+    process = subprocess.Popen(cmd, env=os.environ, stdout=PIPE, stderr=PIPE)
     process.wait()
 
     cmd = ['venv/Scripts/python', 'spiders/citilink_all_script.py']
     process = subprocess.Popen(cmd, env=os.environ)
     process.wait()
 
-    f = open("all.json", encoding='utf-8')
-    data = json.load(f)
+    # f = open("all.json", encoding='utf-8')
+    data = json.load(process.stdout)
     names = ""
 
     for i in data:
@@ -63,10 +66,6 @@ def scrap_all(request):
     return HttpResponse("Скрапим.............. <br>")
 
 
-from rest_framework import viewsets, generics
-from .serializers import Product_serializer
-
-
 # class ProductsViewSet(viewsets.ReadOnlyModelViewSet):
 #     queryset = Info.objects.all()
 #     serializer_class = Product_serializer
@@ -81,9 +80,20 @@ class ProductList(generics.ListAPIView):
 #     serializer_class = Product_serializer
 
 
-def kek(request, product_id):
+def view_product_by_id(request, product_id):
     product_id = int(product_id)
     products = Info.objects.filter(product_ID=product_id).first()
     serializer = Product_serializer(products, many=False)
+
+    return JsonResponse(serializer.data, safe=False)
+
+
+PRODUCTS_ON_PAGE = 7
+
+
+def view_with_filter(request, category, page=0):
+    category_ID = Categories.objects.get(category_name=category).category_ID
+    products = Info.objects.filter(product_category_ID=category_ID).all()[PRODUCTS_ON_PAGE*page:PRODUCTS_ON_PAGE*(page+1)]
+    serializer = Product_serializer(products, many=True)
 
     return JsonResponse(serializer.data, safe=False)

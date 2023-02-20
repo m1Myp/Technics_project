@@ -15,7 +15,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('scrap_all', views.scrap_all, name='scrap_all'),
     path('api/v1/test/', views.ProductList.as_view()),
-    path('api/v1/product/<int:product_id>', views.kek, name='product_detail'),
+    path('api/v1/product/<int:product_id>', views.view_product_by_id, name='product_detail'),
+    path('api/v1/c=<slug:category>', views.view_with_filter),
+    path('api/v1/c=<slug:category>/p=<int:page>', views.view_with_filter),
 ]
 
 # urlpatterns = format_suffix_patterns(urlpatterns)
