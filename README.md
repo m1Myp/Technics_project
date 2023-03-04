@@ -26,3 +26,8 @@ python manage.py runserver
 - по ссылке http://127.0.0.1:8000/products/api/v1/test/ будет json file со всеми продуктами
 - по ссылке http://127.0.0.1:8000/products/api/v1/product/<id> будет json file с продуктом product_id которого совпадает с id. 
 Например: http://127.0.0.1:8000/products/api/v1/product/484 отобразится продукт с product_id 484.
+- по ссылке api/v1/c=<slug:category>/p=<int:page> будет json file страницы под номером page (страницы нумеруются с 0) продуктов категории category.
+Например: http://127.0.0.1:8000/products/api/v1/c=myshi/p=12
+- по ссылке api/v1/c=<slug:category> будет json file первой страницы продуктов категории category.
+Например: http://127.0.0.1:8000/products/api/v1/c=myshi
+Запрос эквивалентен запросу http://127.0.0.1:8000/products/api/v1/c=myshi/p=0
