@@ -93,7 +93,9 @@ PRODUCTS_ON_PAGE = 7
 
 def view_with_filter(request, category, page=0):
     category_ID = Categories.objects.get(category_name=category).category_ID
-    products = Info.objects.filter(product_category_ID=category_ID).all()[PRODUCTS_ON_PAGE*page:PRODUCTS_ON_PAGE*(page+1)]
+    all_products = Info.objects.filter(product_category_ID=category_ID)
+    products = all_products.all()[
+               PRODUCTS_ON_PAGE * page:PRODUCTS_ON_PAGE * (page + 1)]
     serializer = Product_serializer(products, many=True)
-
-    return JsonResponse(serializer.data, safe=False)
+    data = {'products': serializer.data, 'total_count_products': len(all_products.all())}
+    return JsonResponse(data, safe=False)
