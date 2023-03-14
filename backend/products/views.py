@@ -90,10 +90,16 @@ def view_product_by_id(request, product_id):
 
 PRODUCTS_ON_PAGE = 7
 
+from django.db.models import F, Func, Min, OrderBy
+
 
 def view_with_filter(request, category, page=0):
     category_ID = Categories.objects.get(category_name=category).category_ID
-    all_products = Info.objects.filter(product_category_ID=category_ID)
+    all_products = Info\
+        .objects\
+        .filter(product_category_ID=category_ID) \
+        .annotate(min_cost=Min('urls__cost__product_cost'))\
+        .order_by(F('min_cost').asc())
     products = all_products.all()[
                PRODUCTS_ON_PAGE * page:PRODUCTS_ON_PAGE * (page + 1)]
     serializer = Product_serializer(products, many=True)
