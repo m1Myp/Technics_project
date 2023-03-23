@@ -13,7 +13,7 @@ const routes: Routes = [
     component: ProductsComponent,
     children: [
       {
-        path: 'search-page',
+        path: 'search-page/:category',
         component: SearchPage
       },
       {

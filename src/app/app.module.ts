@@ -8,9 +8,6 @@ import { HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module'
 import { NgxPaginationModule } from 'ngx-pagination';
 
-import { MainPage } from './pages/main-page/main-page.component'
-import { SearchPage } from './pages/search-page/search-page.component'
-import { ProductPage } from './pages/product-page/product-page.component'
 import { ProductsModule } from './pages/products-route/products.module'
 import { SearchPageModule } from './pages/search-page/search-page.module'
 import { MainPageModule } from './pages/main-page/main-page.module'

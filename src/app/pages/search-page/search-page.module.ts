@@ -9,10 +9,12 @@ import { HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from '../../app-routing.module'
 import { AppComponent } from '../../app.component'
 
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination'
+import { PaginationComponent } from '../../pagination/pagination.component'
+
 
 @NgModule({
-  declarations: [SearchPage],
+  declarations: [SearchPage, PaginationComponent],
   imports: [ 
     BrowserModule, 
     CommonModule,

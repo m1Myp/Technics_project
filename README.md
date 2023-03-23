@@ -1,5 +1,4 @@
 # Website
-### [UI design](https://www.figma.com/file/TTqshqneTntsBTptz75Xbe/Technics-Nearby?node-id=0%3A1) for website (using Figma)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 

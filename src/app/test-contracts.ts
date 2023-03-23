@@ -2,6 +2,7 @@ export interface Info {
   product_ID: string,
   product_name: string,
   product_manufacturer: string,
+  product_category_ID: string,
   pictures: PicturesArray;
   urls: UrlArray;
 }
@@ -21,4 +22,13 @@ export interface UrlArray extends Array<Url> { }
 
 export interface Cost {
   product_cost: number;
+}
+
+export interface Category {
+  category_name: string;
+}
+
+export interface PageResponse {
+  products: InfoArray;
+  total_count_products: number;
 }

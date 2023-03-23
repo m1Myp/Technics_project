@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 import { TestService } from "../../test.service";
-import { Info } from "../../test-contracts";
+import { Info, Category } from "../../test-contracts";
 
 @Component({
   selector: 'product-page',
@@ -17,6 +17,7 @@ export class ProductPage implements OnInit {
     product_ID: '',
     product_name: '',
     product_manufacturer: '',
+    product_category_ID: '',
     pictures: [],
     urls: []
   };
