@@ -31,3 +31,11 @@ python manage.py runserver
 - по ссылке api/v1/c=<slug:category> будет json file первой страницы продуктов категории category.
 Например: http://127.0.0.1:8000/products/api/v1/c=myshi
 Запрос эквивалентен запросу http://127.0.0.1:8000/products/api/v1/c=myshi/p=0
+- по ссылке api/v1/c=<slug:category>/p=<int:page> будет json file страницы под номером page (страницы нумеруются с 0) продуктов категории category.
+Например: http://127.0.0.1:8000/products/api/v1/c=myshi/p=12
+- по ссылке api/v1/c=<slug:category> будет json file первой страницы продуктов категории category.
+Например: http://127.0.0.1:8000/products/api/v1/c=myshi
+Запрос эквивалентен запросу http://127.0.0.1:8000/products/api/v1/c=myshi/p=0
+- по ссылке api/v1/c=<slug:category>/p=<int:page>&sorting=<slug:sorting_type> будет страница продуктов категории category отсортированные по минимальной цене
+Например: http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=price_asc  -- сортировка по возрастанию цены
+http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=price_desc -- сортировка по убыванию цены

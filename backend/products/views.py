@@ -93,15 +93,41 @@ PRODUCTS_ON_PAGE = 7
 from django.db.models import F, Func, Min, OrderBy
 
 
-def view_with_filter(request, category, page=0):
-    category_ID = Categories.objects.get(category_name=category).category_ID
-    all_products = Info\
-        .objects\
-        .filter(product_category_ID=category_ID) \
-        .annotate(min_cost=Min('urls__cost__product_cost'))\
+def view_default(request, category):
+    return view_with_filter(request, category, 0)
+
+
+def view_with_filter(request, category, page):
+    category_id = Categories.objects.get(category_name=category).category_ID
+    all_products = Info \
+        .objects \
+        .filter(product_category_ID=category_id) \
+        .annotate(min_cost=Min('urls__cost__product_cost')) \
         .order_by(F('min_cost').asc())
     products = all_products.all()[
                PRODUCTS_ON_PAGE * page:PRODUCTS_ON_PAGE * (page + 1)]
     serializer = Product_serializer(products, many=True)
     data = {'products': serializer.data, 'total_count_products': len(all_products.all())}
+    return JsonResponse(data, safe=False)
+
+
+def view_with_filter_and_sort(request, category, page, sorting_type):
+    category_id = Categories.objects.get(category_name=category).category_ID
+    all_products = Info \
+        .objects \
+        .filter(product_category_ID=category_id) \
+        .annotate(min_cost=Min('urls__cost__product_cost'))
+    if sorting_type == "price_asc":
+        all_products = all_products.order_by(F('min_cost').asc())
+    else:
+        all_products = all_products.order_by(F('min_cost').desc())
+    products = all_products.all()[
+               PRODUCTS_ON_PAGE * page:PRODUCTS_ON_PAGE * (page + 1)]
+    serializer = Product_serializer(products, many=True)
+    data = {'products': serializer.data, 'total_count_products': len(all_products.all())}
+    return JsonResponse(data, safe=False)
+
+
+def view_with_search(request, search_query):
+    data = {'search_query':search_query}
     return JsonResponse(data, safe=False)
