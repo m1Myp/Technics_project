@@ -36,6 +36,11 @@ python manage.py runserver
 - по ссылке api/v1/c=<slug:category> будет json file первой страницы продуктов категории category.
 Например: http://127.0.0.1:8000/products/api/v1/c=myshi
 Запрос эквивалентен запросу http://127.0.0.1:8000/products/api/v1/c=myshi/p=0
-- по ссылке api/v1/c=<slug:category>/p=<int:page>&sorting=<slug:sorting_type> будет страница продуктов категории category отсортированные по минимальной цене
-Например: http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=price_asc  -- сортировка по возрастанию цены
-http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=price_desc -- сортировка по убыванию цены
+- по ссылке api/v1/c=<slug:category>/p=<int:page>&sorting=<slug:sorting_type> будет страница продуктов категории category отсортированные по sorting_type
+Например: http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=min_price_asc  -- сортировка по возрастанию минимальной цены
+http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=min_price_desc -- сортировка по убыванию минимальной цены
+http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=max_price_asc  -- сортировка по возрастанию максимальной цены
+http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=max_price_desc -- сортировка по убыванию максимальной цены
+- по api/v1/q=<str:search_query>/p=<int:page>&sorting=<slug:sorting_type> будет страница продуктов содержащих search_query в названии, производителе или названии категории category отсортированные по sorting_type
+Например: http://127.0.0.1:8000/products/api/v1/q=%D0%9C%D1%8B%D1%88%D1%8C/p=2&sorting=max_price_desc
+http://127.0.0.1:8000/products/api/v1/q=Logitech/p=2&sorting=max_price_desc
