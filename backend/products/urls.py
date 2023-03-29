@@ -19,7 +19,8 @@ urlpatterns = [
     path('api/v1/c=<slug:category>', views.view_default),
     path('api/v1/c=<slug:category>/p=<int:page>', views.view_with_filter),
     path('api/v1/c=<slug:category>/p=<int:page>&sorting=<slug:sorting_type>', views.view_with_filter_and_sort),
-    path('api/v1/q=<str:search_query>', views.view_with_search)
+    path('api/v1/q=<str:search_query>', views.view_with_search),
+    path('api/v1/q=<str:search_query>/p=<int:page>&sorting=<slug:sorting_type>', views.view_with_search_page_sort),
 ]
 
 # urlpatterns = format_suffix_patterns(urlpatterns)

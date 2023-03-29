@@ -7,6 +7,9 @@ from django.http import HttpResponse, JsonResponse
 
 from products.models import Categories, Info, URL, Pictures, Cost
 from rest_framework import viewsets, generics
+
+from .functions.pagination import get_page
+from .functions.products_sort import sort_products
 from .serializers import Product_serializer
 
 
@@ -88,9 +91,7 @@ def view_product_by_id(request, product_id):
     return JsonResponse(serializer.data, safe=False)
 
 
-PRODUCTS_ON_PAGE = 7
-
-from django.db.models import F, Func, Min, OrderBy
+from django.db.models import F, Func, Min, OrderBy, Q
 
 
 def view_default(request, category):
@@ -98,36 +99,34 @@ def view_default(request, category):
 
 
 def view_with_filter(request, category, page):
-    category_id = Categories.objects.get(category_name=category).category_ID
-    all_products = Info \
-        .objects \
-        .filter(product_category_ID=category_id) \
-        .annotate(min_cost=Min('urls__cost__product_cost')) \
-        .order_by(F('min_cost').asc())
-    products = all_products.all()[
-               PRODUCTS_ON_PAGE * page:PRODUCTS_ON_PAGE * (page + 1)]
-    serializer = Product_serializer(products, many=True)
-    data = {'products': serializer.data, 'total_count_products': len(all_products.all())}
-    return JsonResponse(data, safe=False)
+    return view_with_filter_and_sort(request, category, page, 'min_price_asc')
 
 
 def view_with_filter_and_sort(request, category, page, sorting_type):
     category_id = Categories.objects.get(category_name=category).category_ID
     all_products = Info \
         .objects \
-        .filter(product_category_ID=category_id) \
-        .annotate(min_cost=Min('urls__cost__product_cost'))
-    if sorting_type == "price_asc":
-        all_products = all_products.order_by(F('min_cost').asc())
-    else:
-        all_products = all_products.order_by(F('min_cost').desc())
-    products = all_products.all()[
-               PRODUCTS_ON_PAGE * page:PRODUCTS_ON_PAGE * (page + 1)]
+        .filter(product_category_ID=category_id)
+    all_products = sort_products(all_products, sorting_type)
+    products = get_page(all_products, page)
     serializer = Product_serializer(products, many=True)
     data = {'products': serializer.data, 'total_count_products': len(all_products.all())}
     return JsonResponse(data, safe=False)
 
 
 def view_with_search(request, search_query):
-    data = {'search_query':search_query}
+    return view_with_search_page_sort(request, search_query, 0, 'min_price_asc')
+
+
+def view_with_search_page_sort(request, search_query, page, sorting_type):
+    all_products = Info \
+        .objects \
+        .filter(Q(product_name__icontains=search_query) |
+                Q(product_category_ID__category_name__icontains=search_query) |
+                Q(product_manufacturer__icontains=search_query)
+                )
+    all_products = sort_products(all_products, sorting_type)
+    products = get_page(all_products, page)
+    serializer = Product_serializer(products, many=True)
+    data = {'search_query': search_query, 'products': serializer.data, 'total_count_products': len(all_products.all())}
     return JsonResponse(data, safe=False)
