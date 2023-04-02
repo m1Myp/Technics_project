@@ -21,7 +21,7 @@ background-repeat: no-repeat; background-position: center center; background-att
       <span class="search-page-text02"><span>войти</span></span>
     </header>
     <div class="search-page-searchinputbar">
-      <input type="text" placeholder="Поиск..." class="search-page-textinput" />
+      <input type="text" placeholder="Поиск..." class="search-page-textinput" maxlength="80" name="searchString"/>
       <a href="/products/search-page" class="search-page-searchbutton">
         <img
           alt="SearchI288"
@@ -101,9 +101,10 @@ background-repeat: no-repeat; background-position: center center; background-att
           <div
             data-thq="thq-dropdown-toggle"
             class="search-page-dropdown-toggle1"
+            (click)="doSorting('min_price_asc')"
           >
             <span class="search-page-text07">
-              <span>возрастанию цены</span>
+              <span>возрастанию минимальной цены</span>
               <br />
             </span>
           </div>
@@ -111,26 +112,29 @@ background-repeat: no-repeat; background-position: center center; background-att
         <li data-thq="thq-dropdown" class="search-page-dropdown1 list-item">
           <div
             data-thq="thq-dropdown-toggle"
-            class="search-page-dropdown-toggle2"
+            class="search-page-dropdown-toggle1"
+            (click)="doSorting('max_price_asc')"
           >
-          <span class="search-page-text07">убыванию цены</span>
+          <span class="search-page-text07">возрастанию максимальной цены</span>
           </div>
         </li>
-        <li data-thq="thq-dropdown" class="search-page-dropdown2 list-item">
+        <li data-thq="thq-dropdown" class="search-page-dropdown1 list-item">
           <div
             data-thq="thq-dropdown-toggle"
-            class="search-page-dropdown-toggle3"
+            class="search-page-dropdown-toggle1"
+            (click)="doSorting('min_price_desc')"
           >
-            <span class="search-page-text07">производителю</span>
+            <span class="search-page-text07">убыванию минимальной цены</span>
           </div>
         </li>
-        <li data-thq="thq-dropdown" class="search-page-dropdown3 list-item">
+        <li data-thq="thq-dropdown" class="search-page-dropdown1 list-item">
           <div
             data-thq="thq-dropdown-toggle"
-            class="search-page-dropdown-toggle4"
+            class="search-page-dropdown-toggle1"
+            (click)="doSorting('max_price_desc')"
           >
             <span class="search-page-text07">
-              <span>продавцу</span>
+              <span>убыванию максимальной цены</span>
               <br />
             </span>
           </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TestService } from "../../test.service";
-import { Info, InfoArray, Category } from "../../test-contracts";
+import { InfoArray } from "../../test-contracts";
 
 @Component({
   selector: 'search-page',
@@ -20,6 +20,8 @@ export class SearchPage implements OnInit{
   @Input()
   text1: string = 'Text'
 
+  sorting: string = 'min_price_asc';
+
   POSTS: any;
 
   public category: string = '';
@@ -30,16 +32,15 @@ export class SearchPage implements OnInit{
   }
 
   ngOnInit(): void {
-    this.getItems(this.category, 0);
+    this.getItems(this.category, 0, this.sorting);
   }
 
-  ////////////////////////////
   public current: number = 1;
   public total: number = 1;
   public itemsToDisplay: InfoArray = []
   public perPage: number = 7;
-  getItems(category: string, page: number) {
-    this.testService.getItems(category, page).subscribe(
+  public getItems(category: string, page: number, sorting: string) {
+    this.testService.getItems(category, page, sorting).subscribe(
       {
         next: (data) => {
           this.itemsToDisplay = data.products;
@@ -55,15 +56,21 @@ export class SearchPage implements OnInit{
 
   public onGoTo(page: number): void {
     this.current = page;
-    this.getItems(this.category, this.current - 1);
+    this.getItems(this.category, this.current - 1, this.sorting);
   }
   public onNext(page: number): void {
     this.current = page + 1;
-    this.getItems(this.category, this.current - 1);
+    this.getItems(this.category, this.current - 1, this.sorting);
   }
   public onPrevious(page: number): void {
     this.current = page - 1;
-    this.getItems(this.category, this.current - 1);
+    this.getItems(this.category, this.current - 1, this.sorting);
+  }
+
+  public doSorting(sorting: string): void {
+    this.sorting = sorting;
+    this.current = 1;
+    this.getItems(this.category, 0, this.sorting);
   }
 }
 

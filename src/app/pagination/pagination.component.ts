@@ -35,7 +35,7 @@ export class PaginationComponent implements OnChanges {
     this.previous.next(this.current)
   }
 
-  private getPages(current: number, total: number): number[] {
+  public getPages(current: number, total: number): number[] {
     if (total <= 7) {
       return [...Array(total).keys()].map(x => ++x)
     }

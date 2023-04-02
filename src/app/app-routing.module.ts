@@ -17,6 +17,10 @@ const routes: Routes = [
         component: SearchPage
       },
       {
+        path: 'search-page',
+        component: SearchPage
+      },
+      {
         path: 'product-page/:id',
         component: ProductPage
       }
