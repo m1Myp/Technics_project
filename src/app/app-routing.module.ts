@@ -6,6 +6,7 @@ import { MainPage } from './pages/main-page/main-page.component';
 import { ProductPage } from './pages/product-page/product-page.component';
 import { ComponentsModule } from './components/components.module';
 import { ProductsComponent } from './pages/products-route/products.component';
+import { CatalogPage } from './pages/catalog-page/catalog-page.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,15 @@ const routes: Routes = [
     component: ProductsComponent,
     children: [
       {
-        path: 'search-page/:category',
+        path: 'catalog-page/:category',
+        component: CatalogPage
+      },
+      {
+        path: 'catalog-page',
+        component: CatalogPage
+      },
+      {
+        path: 'search-page/:search',
         component: SearchPage
       },
       {

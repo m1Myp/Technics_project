@@ -3,6 +3,11 @@
 }
 .main-page-container {
   min-height: 100vh;
+  background-color: #0C0D18; 
+  background-image: url(/assets/playground_assets/pastedimage-42p-2400h.png);
+  background-repeat: no-repeat; 
+  background-position: center center; 
+  background-attachment: fixed;
 }
 .main-page-frame-mainpage {
   width: 100%;
@@ -34,6 +39,7 @@
   height: fit-content;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-rows: min-content auto min-content;
   grid-auto-flow: row;
   row-gap: 20px;
   column-gap: 70px;
@@ -220,10 +226,11 @@
   top: 80px;
   max-width: 860px;
   min-width: 330px;
-  width: 70%;
+  width:auto;
   height: 40px;
-  margin: auto;
-  display: flex;
+  margin-left:auto;
+  margin-right:auto;
+  display: table;
   align-items: center;
   justify-content: center;
   position: absolute;

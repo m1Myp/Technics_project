@@ -11,11 +11,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductsModule } from './pages/products-route/products.module'
 import { SearchPageModule } from './pages/search-page/search-page.module'
 import { MainPageModule } from './pages/main-page/main-page.module'
-import { ProductPageModule } from './pages/product-page/product-page.module'
+import { ProductPageModule } from './pages/product-page/product-page.module';
+import { CatalogPageModule } from './pages/catalog-page/catalog-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule, 
@@ -25,6 +26,7 @@ import { ProductPageModule } from './pages/product-page/product-page.module'
     NgxPaginationModule,
 
     ProductsModule,
+    CatalogPageModule,
     SearchPageModule,
     MainPageModule,
     ProductPageModule

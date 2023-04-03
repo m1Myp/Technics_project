@@ -1,0 +1,653 @@
+:host { 
+    display: contents; 
+  }
+  .catalog-page-container {
+    min-height: 100vh;
+  }
+  .catalog-page-frame-searchpage {
+    width: 100%;
+    height: 2310px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .catalog-page-pasted-image {
+    top: 117px;
+    left: 0px;
+    right: 0px;
+    width: 1440px;
+    margin: auto;
+    position: absolute;
+    align-self: center;
+  }
+  .catalog-page-frame-header {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding: 0;
+    position: fixed;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: stretch;
+    flex-shrink: 1;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+    z-index: 20;
+  }
+  .catalog-page-menuburgerbutton {
+    top: 0px;
+    left: 0px;
+    width: 105px;
+    bottom: 0px;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-self: flex-start;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+  }
+  .catalog-page-mainmenu {
+    top: 0px;
+    right: 0px;
+    width: 105px;
+    height: 50px;
+    margin: auto;
+    position: absolute;
+    border-color: transparent;
+  }
+  .catalog-page-menubutton {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 21px;
+    bottom: 0px;
+    height: 21px;
+    margin: auto;
+    position: absolute;
+  }
+  .catalog-page-logobutton {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 264px;
+    bottom: 0px;
+    height: 66px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+  }
+  .catalog-page-text {
+    top: 15px;
+    left: 0px;
+    color: rgba(255, 255, 255, 1);
+    right: 0px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    font-size: 26px;
+    align-self: auto;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Montserrat Alternates;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .catalog-page-text02 {
+    top: 0px;
+    color: rgba(255, 255, 255, 1);
+    right: 35px;
+    width: auto;
+    bottom: 0px;
+    height: 20px;
+    margin: auto;
+    position: absolute;
+    font-size: 16px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: 500;
+    line-height: normal;
+    padding-top: 0px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .catalog-page-searchinputbar {
+    top: 45px;
+    max-width: 860px;
+    min-width: 330px;
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    flex-shrink: 0;
+    border-radius: 20px;
+  }
+  .catalog-page-textinput {
+    left: 0px;
+    border-style: none;
+    width: 85%;
+    height: 40px;
+    position: absolute;
+    font-size: 15;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    padding-top: 0px;
+    padding-left: var(--dl-space-space-oneandhalfunits);
+    border-radius: 20px;
+    padding-right: 7%;
+    padding-bottom: 0px;
+    text-transform: none;
+    text-decoration: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .catalog-page-searchbutton {
+    top: 0px;
+    left: 80%;
+    max-width: 100px;
+    min-width: 80px;
+    width: 20%;
+    bottom: 0px;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 20px;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0.00%,rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+  }
+  .catalog-page-search {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 24px;
+    bottom: 0px;
+    height: 23px;
+    margin: auto;
+    position: absolute;
+  }
+  .catalog-page-optionmenu {
+    top: 215px;
+    left: 0px;
+    width: 100%;
+    height: 1956px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-end;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(30, 39, 75, 0.800000011920929);
+  }
+  .catalog-page-menu-container {
+    top: 0px;
+    left: 180px;
+    width: 1080px;
+    bottom: 0px;
+    height: 1710px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .catalog-page-thq-dropdown {
+    top: 165px;
+    left: 255px;
+    width: 300px;
+    cursor: pointer;
+    height: 50px;
+    display: inline-block;
+    position: absolute;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .catalog-page-dropdown-toggle {
+    gap: var(--dl-space-space-halfunit);
+    top: 0px;
+    fill: #595959;
+    left: 0px;
+    color: #ffffff;
+    width: 100%;
+    bottom: 0px;
+    height: 39px;
+    margin: auto;
+    display: inline-flex;
+    position: absolute;
+    align-items: center;
+    padding-top: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-unit);
+    border-radius: 20px;
+    padding-right: var(--dl-space-space-unit);
+    flex-direction: row;
+    padding-bottom: var(--dl-space-space-halfunit);
+    justify-content: flex-start;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .catalog-page-text04 {
+    font-size: 18px;
+    font-style: normal;
+    text-align: center;
+    font-family: Montserrat Alternates;
+    font-weight: 400;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .catalog-page-dropdown-arrow {
+    transition: 0.3s;
+  }
+  .catalog-page-icon {
+    fill: #ffffff;
+    width: 30px;
+    height: 26px;
+    margin-top: auto;
+    transition: 0.3s;
+    margin-bottom: auto;
+  }
+  .catalog-page-dropdown-list {
+    top: 50px;
+    left: 0px;
+    width: 300px;
+    display: none;
+    z-index: 100;
+    position: absolute;
+    min-width: 100%;
+    transition: 0.3s;
+    align-items:stretch;
+    border-radius: 20px;
+    flex-direction: column;
+    list-style-type: none;
+    background-color: #3E4561;
+    list-style-position: inside;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    min-height: 50px;
+    min-width: 280px;
+  }
+  .catalog-page-dropdown {
+    cursor: pointer;
+    left: 0px;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    border-radius: var(--dl-radius-radius-radius2);
+  }
+  .catalog-page-dropdown-toggle1 {
+    fill: #595959;
+    color: #595959;
+    width: 100%;
+    height: 50px;
+    left: 0px;
+    display: inline-flex;
+    transition: 0.3s;
+    align-items: center;
+    padding-top: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-halfunit);
+    justify-content: flex-start;
+  }
+  .catalog-page-dropdown-toggle1:hover {
+    left: 0px;
+    fill: #fff;
+    color: #fff;
+    background-color: #555C76;
+  }
+  .catalog-page-text07 {
+    color: #ffffff;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    font-style: normal;
+    font-family: Montserrat Alternates;
+    font-weight: 400;
+    padding: 5px;
+  }
+  .catalog-page-dropdown1 {
+    cursor: pointer;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    border-radius: var(--dl-radius-radius-radius2);
+  }
+  .catalog-page-dropdown2 {
+    cursor: pointer;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    border-radius: var(--dl-radius-radius-radius2);
+  }
+  .catalog-page-dropdown3 {
+    cursor: pointer;
+    height: 50px;
+    display: inline-block;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10;
+    border-bottom-right-radius: 10;
+  }
+  .catalog-page-form {
+    left: 0px;
+    width: 100%;
+    bottom: 0px;
+    height: 125;
+    display: flex;
+    position: absolute;
+    background-image: linear-gradient(0deg, rgb(47, 28, 158) 1.00%,rgba(44, 62, 80, 0) 100.00%);
+  }
+  
+  
+  
+  
+  
+  
+  
+  .optionwindow-optionwindow {
+    width: 1080px;
+    height: 210px;
+    display: flex;
+    position: relative;
+    margin-top: 0px;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 0p0x;
+    border-color: transparent;
+    border-radius: 10px;
+    margin-right: 0p0x;
+    margin-bottom: 40px;
+    justify-content: flex-start;
+    background-color: #ffffff;
+  }
+  .optionwindow-priceblock {
+    top: 11px;
+    left: 735px;
+    width: 315px;
+    height: 190px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .optionwindow-text {
+    left: 15px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    align-self: auto;
+    font-style: SemiBold;
+    text-align: left;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+    text-transform: none;
+    text-decoration: none;
+  }
+  .optionwindow-text02 {
+    left: 112px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: left;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+    text-transform: none;
+    text-decoration: none;
+  }
+  .optionwindow-text04 {
+    top: 31px;
+    left: 112px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: left;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+    text-transform: none;
+    text-decoration: none;
+  }
+  .optionwindow-frame14 {
+    top: 62px;
+    left: 15px;
+    height: 128px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  .optionwindow-text06 {
+    top: 0px;
+    left: 0px;
+    color: rgba(104, 104, 104, 1);
+    bottom: 0px;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    flex-grow: 1;
+    align-self: auto;
+    text-align: left;
+    font-stretch: normal;
+  }
+  .optionwindow-text08 {
+    top: 0px;
+    color: rgba(104, 104, 104, 1);
+    right: 0px;
+    bottom: 0px;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    flex-grow: 1;
+    align-self: auto;
+    font-style: SemiBold;
+    text-align: right;
+    font-stretch: normal;
+  }
+  .optionwindow-frame2 {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 7px;
+  }
+  .optionwindow-texthighlightbutton {
+    width: 300px;
+    height: 20px;
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: stretch;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .optionwindow-text22 {
+    top: 0px;
+    left: 0px;
+    color: rgba(0, 0, 0, 1);
+    bottom: 0px;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    font-size: 15px;
+    align-self: auto;
+    font-style: SemiBold;
+    text-align: left;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .optionwindow-form {
+    width: 3px;
+    height: 180px;
+    display: flex;
+    align-self: center;
+    background-color: #4f5981;
+  }
+  .optionwindow-productblock {
+    top: 11px;
+    left: 242px;
+    width: 480px;
+    height: 190px;
+    display: flex;
+    position: absolute;
+    align-items: stretch;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .optionwindow-text24 {
+    left: 0px;
+    top: 55px;
+    color: rgba(104, 104, 104, 1);
+    height: auto;
+    position: absolute;
+    font-size: 14px;
+    align-self: auto;
+    font-style: SemiBold;
+    text-align: left;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+    text-transform: none;
+    text-decoration: none;
+  }
+  .optionwindow-text26 {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    font-size: 16px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: none;
+    text-decoration: none;
+  }
+  .optionwindow-text27 {
+    left: 0px;
+    width: 100%;
+    top: 72px;
+    bottom: 0px;
+    height: 124px;
+    position: absolute;
+    font-size: 15px;
+    font-style: SemiBold;
+    text-align: justify;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: none;
+    text-decoration: none;
+  }
+  .optionwindow-form1 {
+    width: 220px;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+  .optionwindow-image {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    border-radius: 10px;
+  }
+  
+  
+  
+  
+  
+  textarea:focus, input:focus{
+    outline: none;
+  }
+  
+  ul {
+    padding-left: 0;
+    list-style-type:none;
+  }
+  
+  a.text:active, a.text:hover, a.text {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }

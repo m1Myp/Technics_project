@@ -10,18 +10,19 @@ import { AppRoutingModule } from '../../app-routing.module'
 import { AppComponent } from '../../app.component'
 
 import { NgxPaginationModule } from 'ngx-pagination'
-import { PaginationComponent } from '../../pagination/pagination.component'
+import { PaginationModule } from '../../pagination/pagination.module'
 
 
 @NgModule({
-  declarations: [SearchPage, PaginationComponent],
+  declarations: [SearchPage],
   imports: [ 
     BrowserModule, 
     CommonModule,
     AppRoutingModule, 
     ComponentsModule, 
     HttpClientModule, 
-    NgxPaginationModule
+    NgxPaginationModule, 
+    PaginationModule
   ],
   exports: [SearchPage],
   //bootstrap:[SearchPage],

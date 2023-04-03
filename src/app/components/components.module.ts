@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common'
 
 import { CategoriesAndBrands } from './categories-and-brands/categories-and-brands.component'
 import { Optionwindow } from './optionwindow/optionwindow.component'
+import { SearchInputbar } from './search-inputbar/search-inputbar.component'
 
 @NgModule({
-  declarations: [CategoriesAndBrands, Optionwindow],
+  declarations: [CategoriesAndBrands, Optionwindow, SearchInputbar],
   imports: [CommonModule, RouterModule],
-  exports: [CategoriesAndBrands, Optionwindow],
+  exports: [CategoriesAndBrands, Optionwindow, SearchInputbar],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}
