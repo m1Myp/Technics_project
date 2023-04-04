@@ -1,0 +1,122 @@
+:host { 
+    display: contents; 
+  }
+  .component-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .component-form {
+    right: 5%;
+    width: auto;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0.00%,rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+  }
+  .component-text {
+    color: #ffffff;
+    font-size: 12px;
+    font-family: Montserrat;
+  }
+  .component-form1 {
+    width: 45%;
+    height: auto;
+    margin: auto;
+    display: grid;
+    padding: 20px;
+    align-items: flex-start;
+    grid-column-gap: 0px;
+    justify-content: center;
+  }
+  .component-text01 {
+    width: auto;
+    position: relative;
+    font-style: normal;
+    text-align: center;
+    font-family: Montserrat Alternates;
+    font-weight: 700;
+  }
+  .component-form2 {
+    width: 600px;
+    height: auto;
+    display: grid;
+    grid-gap: 10px;
+    position: relative;
+    max-height: 500px;
+  }
+  .component-text02 {
+    width: 100%;
+    text-align: left;
+    font-family: Montserrat;
+    padding-top: 15px;
+  }
+  .component-text11 {
+    color: #ffffff;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    font-style: normal;
+    font-family: Montserrat Alternates;
+    font-weight: 400;
+  }
+  .component-text14 {
+    width: 100%;
+    text-align: left;
+    font-family: Montserrat;
+    padding-top: 20px;
+  }
+  .component-form3 {
+    bottom: 10%;
+    right: 30px;
+    max-width: 200px;
+    min-width: 130px;
+    width: 25%;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0.00%,rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+    z-index: 22;
+  }
+  .component-form4 {
+    max-width: 200px;
+    min-width: 130px;
+    width: 25%;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0.00%,rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+    z-index: 22;
+  }
+  .component-text15 {
+    color: #ffffff;
+    font-size: 12px;
+    font-family: Montserrat;
+  }
+  
+  .email {
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: black;
+  }
+  

@@ -228,7 +228,7 @@
   position: absolute;
   align-items: flex-end;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .search-page-thq-dropdown {
   top: 165px;

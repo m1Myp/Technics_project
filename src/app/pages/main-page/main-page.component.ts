@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
+import { ModalService } from '../../_modal/modal.service'
 
 @Component({
   selector: 'main-page',
@@ -7,7 +8,7 @@ import { Title, Meta } from '@angular/platform-browser'
   styleUrls: ['main-page.component.css'],
 })
 export class MainPage {
-  constructor(private title: Title, private meta: Meta) {
+  constructor(private title: Title, private meta: Meta, private modalService: ModalService) {
     this.title.setTitle('technics nearby')
     this.meta.addTags([
       {
@@ -15,5 +16,13 @@ export class MainPage {
         content: 'technics nearby',
       },
     ])
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+  
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }

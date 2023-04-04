@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from '../../app-routing.module'
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalModule } from '../../_modal/modal.module'
 
 @NgModule({
   declarations: [MainPage],
