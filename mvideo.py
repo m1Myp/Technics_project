@@ -42,7 +42,7 @@ def get_data(url):
         while flag == True:
             time.sleep(2)
             #scroll down by little bit to download full page
-            for i in range(6):
+            for i in range(7):
                 driver.execute_script("window.scrollBy(0,1000)","")
                 time.sleep(1)
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
