@@ -1,22 +1,23 @@
-<button class="component-form3" (click)="openModal('bug-report')">
-  <span class="component-text15">Сообщить об ошибке</span> 
-</button>
-
-    <jw-modal id="bug-report">
-      <form 
-      class="component-form1">
-        <span class="component-text01">Отчет об ошибке</span>
-        <div class="component-form2">
-
-            <span class="component-text14">Укажите вашу почту для обратной связи:</span>
-            <input type="email" class="email" name="email" style="border-radius: 5px; border-color: black;" #email>
-
-          <span class="component-text14">Опишите проблему подробнее:</span>          
-          <textarea class="email" #message></textarea>
-
-          <button type="submit" class="component-form4 button" (click)="onSubmit(email.value, message.value)">
-            <div class="component-text15" click="on">Отправить</div>
-          </button>
-        </div>
-      </form>
+<button class="component-form3" (click)="openModal('bug-report')"> 
+  <span class="component-text15">{{button}}</span>  
+</button> 
+ 
+    <jw-modal id="bug-report"> 
+      <form class="component-form1"> 
+        <span class="component-text01">Отчет об ошибке</span> 
+         
+        <form class="component-form2" 
+        action = 'https://formspree.io/f/mjvdazgd'
+        method="post"> 
+            <span class="component-text14">Укажите вашу почту для обратной связи:</span> 
+            <input type="email" class="email" name="email" id="email" required #email> 
+ 
+          <span class="component-text14">Опишите проблему подробнее:</span>           
+          <textarea type="message" class="text" name="message" id="message" required #message></textarea> 
+ 
+          <button type="submit" class="component-form4 button"> 
+            <div class="component-text15" click="on">Отправить</div> 
+          </button> 
+        </form> 
+      </form> 
     </jw-modal>

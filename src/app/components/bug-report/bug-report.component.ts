@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalService } from '../../_modal/modal.service';
 import { NgForm } from '@angular/forms';
 import { TestService } from '../../test.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bug-report',
@@ -9,6 +10,7 @@ import { TestService } from '../../test.service';
   styleUrls: ['./bug-report.component.css']
 })
 export class BugReportComponent implements OnInit {
+  button: string = 'Сообщить об ошибке';
 
   email: string = '';
   message: string = '';
@@ -18,7 +20,7 @@ export class BugReportComponent implements OnInit {
 
   onSubmit(email: string, message: string) {
     this.testService.sendBugReport(email, message);
-    this.closeModal('bug-report');
+    //this.closeModal('bug-report');
   }
 
   openModal(id: string) {
