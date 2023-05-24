@@ -13,6 +13,8 @@ from .serializers import Product_serializer
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('bug_report', views.bug_report),
+    path('clean', views.clean, name='clean_db'),
     path('scrap_all', views.scrap_all, name='scrap_all'),
     path('api/v1/test/', views.ProductList.as_view()),
     path('api/v1/product/<int:product_id>', views.view_product_by_id, name='product_detail'),
