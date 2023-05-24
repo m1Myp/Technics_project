@@ -44,3 +44,9 @@ http://127.0.0.1:8000/products/api/v1/c=myshi/p=0&sorting=max_price_desc -- со
 - по api/v1/q=<str:search_query>/p=<int:page>&sorting=<slug:sorting_type> будет страница продуктов содержащих search_query в названии, производителе или названии категории category отсортированные по sorting_type
 Например: http://127.0.0.1:8000/products/api/v1/q=%D0%9C%D1%8B%D1%88%D1%8C/p=2&sorting=max_price_desc
 http://127.0.0.1:8000/products/api/v1/q=Logitech/p=2&sorting=max_price_desc
+- Bug report. 
+ВНИМАНИЕ: прежде чем использовать bug report в файле backend/backend/settings.py нужно заполнить EMAIL_HOST_PASSWORD. Его надо спросить у владельца почты EMAIL_HOST_USER. Для безопастности почты владельца, он не должен загружаться на github.
+Пример запроса используя python:
+```
+r = requests.post("http://127.0.0.1:8000/products/bug_report", data={'email':'sophyal@mail.ru', 'bug_report_message':'cringe project'})
+```
