@@ -61,9 +61,9 @@ def clean_db():
 def update_product_cost(product_data):
     cost = product_data['cost']
     url = URL.objects.filter(product_URL=product_data['url']).first()
-    cost_object = Cost.objects.filter(URL_ID=url)
+    cost_object = Cost.objects.filter(URL_ID=url).first()
     cost_object.product_cost = cost
-    cost_object.update()
+    cost_object.save()
 
 # def delete_product_by_url(product_url):
 #     url = URL.objects.filter(product_URL=product_url)

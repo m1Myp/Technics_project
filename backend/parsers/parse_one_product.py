@@ -17,6 +17,7 @@ def parse_one_product(url):
                      {'shop_name': 'ТПС «Галерея Новосибирск»',
                       'shop_place': 'Новосибирск, ул. Гоголя, д. 13, ТПС «Галерея Новосибирск»',
                       'date': '1 июня'}]
+            update_product_cost({'url': url, 'cost': 1234})
             return {'cost': 1234, 'availability': avail}
         if url.startswith('https://www.citilink.ru'):
             avail = [{'shop_name': 'Магазин Новосибирск, ТЦ "Юпитер"',
@@ -25,6 +26,7 @@ def parse_one_product(url):
                      {'shop_name': 'Пункт выдачи Ситилинк Новосибирск, ТЦ "Академгородка"',
                       'shop_place': 'Новосибирск, ул Ильича, д.6, ТЦ Академгородка, 2 этаж',
                       'date': '31 мая'}]
+            update_product_cost({'url': url, 'cost': 1234})
             return {'cost': 4312, 'availability': avail}
     script_name = ''
     if url.startswith('https://www.mvideo.ru'):
