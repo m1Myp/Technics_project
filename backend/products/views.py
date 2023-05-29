@@ -7,6 +7,7 @@ from django.http import HttpResponse, JsonResponse
 from django.core.mail import send_mail
 
 from backend.settings import EMAIL_HOST_USER
+from parsers.parse_catalogs import parse_catalogs
 from products.models import Categories, Info, URL, Pictures, Cost
 from rest_framework import viewsets, generics
 
@@ -38,14 +39,8 @@ def bug_report(request):
 
 
 def scrap_all(request):
-    data = []
-    names = ""
-
-    for i in data:
-        load_one_product(i)
-
-        names += i["name"] + "<br>"
-    return HttpResponse("БАЗИРУЕМСЯ.............. <br>" + names)
+    parse_catalogs()
+    return HttpResponse("(╯ ° □ °) ╯ (┻━┻).............. <br>")
 
 
 def clean(request):
@@ -94,7 +89,21 @@ def view_with_filter_and_sort(request, category, page, sorting_type):
     all_products = sort_products(all_products, sorting_type)
     products = get_page(all_products, page)
     serializer = Product_serializer(products, many=True)
-    data = {'products': serializer.data, 'total_count_products': len(all_products.all())}
+    products_data = serializer.data
+    for i in range(len(products_data)):
+        urls = products_data[i]['urls']
+        if len(urls) == 0:
+            continue
+        while True:
+            flag = False
+            for j in range(len(urls) - 1):
+                if urls[j]['cost']['product_cost'] > urls[j + 1]['cost']['product_cost']:
+                    flag = True
+                    urls[j]['cost']['product_cost'], urls[j + 1]['cost']['product_cost'] = urls[j + 1]['cost']['product_cost'], urls[j]['cost']['product_cost']
+            if not flag:
+                break
+        products_data[i]['urls'] = urls
+    data = {'products': products_data, 'total_count_products': len(all_products.all())}
     return JsonResponse(data, safe=False)
 
 
@@ -112,5 +121,22 @@ def view_with_search_page_sort(request, search_query, page, sorting_type):
     all_products = sort_products(all_products, sorting_type)
     products = get_page(all_products, page)
     serializer = Product_serializer(products, many=True)
-    data = {'search_query': search_query, 'products': serializer.data, 'total_count_products': len(all_products.all())}
+    products_data = serializer.data
+    for i in range(len(products_data)):
+        urls = products_data[i]['urls']
+        if len(urls) == 0:
+            continue
+        while True:
+            flag = False
+            for j in range(len(urls) - 1):
+                if urls[j]['cost']['product_cost'] > urls[j + 1]['cost']['product_cost']:
+                    flag = True
+                    urls[j]['cost']['product_cost'], urls[j + 1]['cost']['product_cost'] = urls[j + 1]['cost'][
+                                                                                               'product_cost'], \
+                                                                                           urls[j]['cost'][
+                                                                                               'product_cost']
+            if not flag:
+                break
+        products_data[i]['urls'] = urls
+    data = {'search_query': search_query, 'products': products_data, 'total_count_products': len(all_products.all())}
     return JsonResponse(data, safe=False)

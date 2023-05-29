@@ -1,3 +1,4 @@
+from comparator.comparator import compare
 from products.models import Categories, Info, URL, Pictures, Cost
 
 
@@ -38,6 +39,21 @@ def load_one_product(product_data):
     cost.save()
 
 
+def load_many_products(products_data):
+    if len(products_data) == 0:
+        return
+    category = Categories.objects.filter(category_name=products_data[0]["category"]).first()
+    products_names = list(map(lambda x: x['name'], products_data))
+    names_in_db = list(map(lambda x: x.product_name, Info.objects.filter(product_category_ID=category).all()))
+    new_names = compare(names_in_db, products_names)
+    for i in range(len(products_data)):
+        if new_names[i] == '':
+            continue
+        products_data[i]['name'] = new_names[i]
+    for product in products_data:
+        load_one_product(product)
+
+
 def clean_db():
     Categories.objects.all().delete()
 
@@ -48,8 +64,6 @@ def update_product_cost(product_data):
     cost_object = Cost.objects.filter(URL_ID=url)
     cost_object.product_cost = cost
     cost_object.save()
-
-
 
 # def delete_product_by_url(product_url):
 #     url = URL.objects.filter(product_URL=product_url)

@@ -1,0 +1,6 @@
+fuzzywuzzy
+levenshtein
+
+selenium
+beautifulsoup4
+undetected_chromedriver
