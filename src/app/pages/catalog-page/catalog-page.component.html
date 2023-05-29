@@ -24,118 +24,27 @@ background-repeat: no-repeat; background-position: center center; background-att
     <bug-report></bug-report> 
 
     <search-inputbar rootClassName="search-inputbar"></search-inputbar> 
-    
-    <div class="catalog-page-optionmenu">
-      <div class="catalog-page-menu-container">
-        
-        <div class="optionwindow-optionwindow" *ngFor="let element of itemsToDisplay">
-          <div class="optionwindow-priceblock">
-            <span class="optionwindow-text"><span>Цена</span></span>
-            <span class="optionwindow-text02"><span>от</span></span>
-            <span class="optionwindow-text04"><span>до</span></span>
-            <div class="optionwindow-frame14">
-              <div class="optionwindow-frame2">
-                <span class="optionwindow-text06 MontserratText">
-                  <span> <a href="{{ element.urls[0].product_URL }}" target="_blank">{{ element.urls[0].product_shop }}</a> </span>
-                </span>
-                <span class="optionwindow-text08 MontserratText">
-                  <span> {{ element.urls[0].cost.product_cost }} руб </span>
-                </span>
-              </div>
-              
-              <div class="optionwindow-texthighlightbutton">
-                <span class="optionwindow-text22">
-                  <span>
-                  <a href="/products/product-page/{{ element.product_ID }}" class="text">Полный список</a>
-                </span>
-                </span>
-              </div>
-            </div>
-            <form class="optionwindow-form"></form>
-          </div>
-          <div class="optionwindow-productblock">
-            <span class="optionwindow-text26"><a href="/products/product-page/{{ element.product_ID }}" class="text">{{ element.product_name }}</a></span>
-            <span class="optionwindow-text24"><span>Характеристики:</span></span>
-            <span class="optionwindow-text27">{{ text }}</span>
-          </div>
-          <form class="optionwindow-form1">
-            <img
-              src = "{{element.pictures[0].picture_URL}}"
-              class="optionwindow-image"
-            />
-          </form>
+
+
+    <span class="menu-container">
+
+      <dropdown-list (doSorting)="doSorting($event)" style="width: 100%;max-height: 50px;"></dropdown-list>
+      
+      <div class="optionmenu">
+        <div class="catalog-page-menu-container">
+          <app-optionwindow rootClassName="optionwindow-optionwindow"  *ngFor="let element of itemsToDisplay" [element]="element">
+          </app-optionwindow>
         </div>
-
-      </div>
-
-      <div class="d-flex text-white justify-content-center">
-
-
-        <app-pagination 
-        [current]="current" [total]="total" (goTo)="onGoTo($event)" (next)="onNext($event)" (previous)="onPrevious($event)">
-        </app-pagination>
-        
-
-      </div>
-
-    </div>
-    <div data-thq="thq-dropdown" class="catalog-page-thq-dropdown list-item">
-      <div data-thq="thq-dropdown-toggle" class="catalog-page-dropdown-toggle">
-        <span class="catalog-page-text04">
-          <span>сортировать по</span>
-          <br />
-        </span>
-        <div data-thq="thq-dropdown-arrow" class="catalog-page-dropdown-arrow">
-          <svg viewBox="0 0 1024 1024" class="catalog-page-icon">
-            <path d="M426 726v-428l214 214z"></path>
-          </svg>
+        <div class="catalog-page-menu-container2">
+          <app-pagination 
+          [current]="current" [total]="total" (goTo)="onGoTo($event)" (next)="onNext($event)" (previous)="onPrevious($event)">
+          </app-pagination>    
         </div>
       </div>
-      <ul data-thq="thq-dropdown-list" class="catalog-page-dropdown-list">
-        <li data-thq="thq-dropdown" class="catalog-page-dropdown list-item">
-          <div
-            data-thq="thq-dropdown-toggle"
-            class="catalog-page-dropdown-toggle1"
-            (click)="doSorting('min_price_asc')"
-          >
-            <span class="catalog-page-text07">
-              <span>возрастанию минимальной цены</span>
-              <br />
-            </span>
-          </div>
-        </li>
-        <li data-thq="thq-dropdown" class="catalog-page-dropdown1 list-item">
-          <div
-            data-thq="thq-dropdown-toggle"
-            class="catalog-page-dropdown-toggle1"
-            (click)="doSorting('max_price_asc')"
-          >
-          <span class="catalog-page-text07">возрастанию максимальной цены</span>
-          </div>
-        </li>
-        <li data-thq="thq-dropdown" class="catalog-page-dropdown1 list-item">
-          <div
-            data-thq="thq-dropdown-toggle"
-            class="catalog-page-dropdown-toggle1"
-            (click)="doSorting('min_price_desc')"
-          >
-            <span class="catalog-page-text07">убыванию минимальной цены</span>
-          </div>
-        </li>
-        <li data-thq="thq-dropdown" class="catalog-page-dropdown1 list-item">
-          <div
-            data-thq="thq-dropdown-toggle"
-            class="catalog-page-dropdown-toggle1"
-            (click)="doSorting('max_price_desc')"
-          >
-            <span class="catalog-page-text07">
-              <span>убыванию максимальной цены</span>
-              <br />
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
+
+    </span>
+
+
     <form class="catalog-page-form"></form>
   </div>
 </div>

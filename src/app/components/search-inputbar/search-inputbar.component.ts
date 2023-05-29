@@ -23,4 +23,9 @@ export class SearchInputbar {
     SearchInputbar.searchString = searchString;
     this.router.navigateByUrl('/products/search-page/'+searchString, {skipLocationChange: false});
   }
+
+  public onEnter(searchString: string) {
+    SearchInputbar.searchString = searchString;
+    this.router.navigateByUrl('/products/search-page/'+searchString, {skipLocationChange: false});
+  }
 }

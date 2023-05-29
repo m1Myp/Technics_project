@@ -11,6 +11,7 @@ import { AppComponent } from '../../app.component'
 
 import { NgxPaginationModule } from 'ngx-pagination'
 import { PaginationModule } from '../../pagination/pagination.module'
+import { DropdownListModule } from '../../components/dropdown-list/dropdown-list.module'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PaginationModule } from '../../pagination/pagination.module'
     ComponentsModule, 
     HttpClientModule, 
     NgxPaginationModule, 
-    PaginationModule
+    PaginationModule,
+    DropdownListModule,
   ],
   exports: [SearchPage],
   //bootstrap:[SearchPage],

@@ -1,41 +1,41 @@
-<section class="optionwindow-optionwindow" [ngClass]="rootClassName">
-  <div class="optionwindow-priceblock">
-    <span class="optionwindow-text"><span>Цена</span></span>
-    <span class="optionwindow-text02"><span>от</span></span>
-    <span class="optionwindow-text04"><span>до</span></span>
-    <div class="optionwindow-frame14">
-      <div class="optionwindow-frame1">
-        <span class="optionwindow-text06">Магазин</span>
-        <span class="optionwindow-text07">Цена</span>
-      </div>
-      <div class="optionwindow-frame2">
-        <span class="optionwindow-text08">Магазин</span>
-        <span class="optionwindow-text09"><span>Цена</span></span>
-      </div>
-      <div class="optionwindow-frame3">
-        <span class="optionwindow-text11"><span>Магазин</span></span>
-        <span class="optionwindow-text13"><span>Цена</span></span>
-      </div>
-      <div class="optionwindow-frame4">
-        <span class="optionwindow-text15"><span>Магазин</span></span>
-        <span class="optionwindow-text17"><span>Цена</span></span>
-      </div>
-      <button class="optionwindow-texthighlightbutton">
-        <span class="optionwindow-text19"><span>Полный список</span></span>
-      </button>
-    </div>
-    <form class="optionwindow-form"></form>
-  </div>
-  <div class="optionwindow-productblock">
-    <span class="optionwindow-text21"><span>Характеристики:</span></span>
-    <a routerLink="/product-page" class="optionwindow-navlink">{{ text1 }}</a>
-    <span class="optionwindow-text23">{{ text }}</span>
-  </div>
+<div class="optionwindow-optionwindow" [ngClass]="rootClassName">
   <form class="optionwindow-form1">
     <img
-      [attr.alt]="image_alt"
-      [attr.src]="image_src"
+      src = "{{element.pictures[0].picture_URL}}"
       class="optionwindow-image"
     />
   </form>
-</section>
+  <div class="optionwindow-container3">
+    <div class="optionwindow-productblock">
+      <span class="big-subtitle"><a href="/products/product-page/{{ element.product_ID }}" class="linkText">{{ element.product_name }}</a></span>
+      <span class="grey-main-text"><span>Характеристики:</span></span>
+      <span class="main-text">{{ text }}</span>
+    </div>
+    <form class="optionwindow-form"></form>
+    <div class="optionwindow-priceblock">
+      <div class="optionwindow-container1">
+      <span class="small-subtitle"><span>Цена</span></span>
+      <div class="optionwindow-container2">
+      <span class="small-subtitle"><span>от {{getMinPrice(element.urls)}} руб</span></span>
+      <span class="small-subtitle"><span>до {{getMaxPrice(element.urls)}} руб</span></span>
+      </div>
+      </div>
+      <div class="optionwindow-frame14">
+        <div class="optionwindow-frame2" *ngFor="let url of element.urls">
+          <span class="small-text">
+            <span> <a href="{{ url.product_URL }}" target="_blank">{{ url.product_shop }}</a> </span>
+          </span>
+          <span class="grey-main-text small-text">
+            <span> {{ url.cost.product_cost }} руб</span>
+          </span>
+        </div>
+        
+        <div class="small-subtitle">
+            <span>
+            <a href="/products/product-page/{{ element.product_ID }}" class="linkText">Полный список</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,8 @@
 <div class="search-inputbar-searchinputbar">
-  <input type="text" placeholder="Поиск..." class="search-inputbar-textinput" name="search" maxlength="80" id="search" value="{{searchValue}}"
-  #search/>
-  <button type="button" class="search-inputbar-searchbutton" (click)="doSearch(search.value)">
+  <input type="text" id="search" placeholder="Поиск..." class="search-inputbar-textinput" 
+    name="search" maxlength="80" value="{{searchValue}}" (keyup.enter) = "onEnter(search.value)"
+    #search/>
+  <button type="button" id="searchButton" class="search-inputbar-searchbutton" (click)="doSearch(search.value)">
     <img
       alt="SearchI288"
       src="/assets/playground_assets/searchi288-7f8.svg"

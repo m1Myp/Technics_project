@@ -13,7 +13,7 @@ import { SearchPageModule } from './pages/search-page/search-page.module'
 import { MainPageModule } from './pages/main-page/main-page.module'
 import { ProductPageModule } from './pages/product-page/product-page.module';
 import { CatalogPageModule } from './pages/catalog-page/catalog-page.module';
-import { ModalModule } from './_modal/modal.module'
+import { ModalModule } from './_modal/modal.module';
 
 @NgModule({
   declarations: [
