@@ -9,6 +9,7 @@ from selenium.webdriver.common.by import By
 
 TESTING = 1
 
+
 def get_data(url, category_name):
     # options and webdriver of our URL
     options = webdriver.ChromeOptions()

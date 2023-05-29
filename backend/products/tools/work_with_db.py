@@ -63,7 +63,7 @@ def update_product_cost(product_data):
     url = URL.objects.filter(product_URL=product_data['url']).first()
     cost_object = Cost.objects.filter(URL_ID=url)
     cost_object.product_cost = cost
-    cost_object.save()
+    cost_object.update()
 
 # def delete_product_by_url(product_url):
 #     url = URL.objects.filter(product_URL=product_url)

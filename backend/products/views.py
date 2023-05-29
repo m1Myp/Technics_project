@@ -1,13 +1,9 @@
-import json
-import os
-from subprocess import Popen, PIPE
-import subprocess
-
 from django.http import HttpResponse, JsonResponse
 from django.core.mail import send_mail
 
 from backend.settings import EMAIL_HOST_USER
 from parsers.parse_catalogs import parse_catalogs
+from parsers.parse_one_product import parse_one_product
 from products.models import Categories, Info, URL, Pictures, Cost
 from rest_framework import viewsets, generics
 
@@ -16,13 +12,12 @@ from .tools.pagination import get_page
 from .tools.products_sort import sort_products
 from .tools.work_with_db import clean_db, load_one_product
 from .serializers import Product_serializer
+from django.db.models import F, Func, Min, OrderBy, Q
+from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request):
     return HttpResponse("(╯ ° □ °) ╯ (┻━┻).............. <br>")
-
-
-from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
@@ -48,29 +43,32 @@ def clean(request):
     return HttpResponse("База почищена")
 
 
-# class ProductsViewSet(viewsets.ReadOnlyModelViewSet):
-#     queryset = Info.objects.all()
-#     serializer_class = Product_serializer
-
 class ProductList(generics.ListAPIView):
     queryset = Info.objects.all()
     serializer_class = Product_serializer
 
 
-# class ProductDetail(generics.RetrieveAPIView):
-#     queryset = Info.objects.all()
-#     serializer_class = Product_serializer
-
-
 def view_product_by_id(request, product_id):
     product_id = int(product_id)
-    products = Info.objects.filter(product_ID=product_id).first()
-    serializer = Product_serializer(products, many=False)
+    product = Info.objects.filter(product_ID=product_id).first()
+    availability = {}
+    for url in product.urls.all():
+        availability[url.product_URL] = parse_one_product(url.product_URL)['availability']
 
-    return JsonResponse(serializer.data, safe=False)
-
-
-from django.db.models import F, Func, Min, OrderBy, Q
+    serializer = Product_serializer(product, many=False)
+    data = serializer.data
+    urls = data['urls']
+    while True:
+        flag = False
+        for i in range(len(urls) - 1):
+            if urls[i]['cost']['product_cost'] > urls[i + 1]['cost']['product_cost']:
+                flag = True
+                urls[i], urls[i + 1] = urls[i + 1], urls[i]
+        if not flag:
+            break
+    for i in range(len(urls)):
+        urls[i]['availability'] = availability[urls[i]['product_URL']]
+    return JsonResponse(data, safe=False)
 
 
 def view_default(request, category):
@@ -99,7 +97,7 @@ def view_with_filter_and_sort(request, category, page, sorting_type):
             for j in range(len(urls) - 1):
                 if urls[j]['cost']['product_cost'] > urls[j + 1]['cost']['product_cost']:
                     flag = True
-                    urls[j]['cost']['product_cost'], urls[j + 1]['cost']['product_cost'] = urls[j + 1]['cost']['product_cost'], urls[j]['cost']['product_cost']
+                    urls[j], urls[j + 1] = urls[j + 1], urls[j]
             if not flag:
                 break
         products_data[i]['urls'] = urls
@@ -131,10 +129,7 @@ def view_with_search_page_sort(request, search_query, page, sorting_type):
             for j in range(len(urls) - 1):
                 if urls[j]['cost']['product_cost'] > urls[j + 1]['cost']['product_cost']:
                     flag = True
-                    urls[j]['cost']['product_cost'], urls[j + 1]['cost']['product_cost'] = urls[j + 1]['cost'][
-                                                                                               'product_cost'], \
-                                                                                           urls[j]['cost'][
-                                                                                               'product_cost']
+                    urls[j], urls[j + 1] = urls[j + 1], urls[j]
             if not flag:
                 break
         products_data[i]['urls'] = urls
