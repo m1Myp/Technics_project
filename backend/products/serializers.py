@@ -36,4 +36,5 @@ class Product_serializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Info
-        fields = ['product_ID', 'product_name', 'product_manufacturer', 'product_category_ID', 'pictures', 'urls']
+        fields = ['product_ID', 'product_name', 'product_manufacturer', 'product_category_ID',
+                  'product_characteristics', 'pictures', 'urls']

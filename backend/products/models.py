@@ -14,6 +14,8 @@ class Info(models.Model):
     )
     product_name = models.TextField()
     product_manufacturer = models.CharField(max_length=100)
+    product_characteristics = models.TextField(
+        default="Тип: внешний жесткий диск(жестче некуда), объем: 1ТБ(1ТБ = 2^43 бит), Интерфейсы подключения: USB 3.0, Формат: 2.5\"(A4), Цвет: Черный(как моя душа)")
 
 
 class URL(models.Model):
