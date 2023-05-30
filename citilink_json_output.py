@@ -25,7 +25,7 @@ def get_data(url,outputname):
     #options and webdriver of our URL
     options = webdriver.ChromeOptions()
     #headless, we don't need it to actually show us the opened browser
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
     #incognito not to flood your browser history with parsed pages 
     options.add_argument('--incognito')
     #create our driver using undetected_chromedriver to avoid antibot defense
