@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 import { TestService } from "../../test.service";
-import { Info, Category } from "../../test-contracts";
+import { Info, Category, UrlArray } from "../../test-contracts";
 
 @Component({
   selector: 'product-page',
@@ -18,6 +18,7 @@ export class ProductPage implements OnInit {
     product_name: '',
     product_manufacturer: '',
     product_category_ID: '',
+    product_characteristics: '',
     pictures: [],
     urls: []
   };
@@ -43,5 +44,13 @@ export class ProductPage implements OnInit {
         }
       }
       );
+  }
+  
+  public getMinPrice(urls: UrlArray): number {
+    return this.testService.getMinPrice(urls);
+  }
+
+  public getMaxPrice(urls: UrlArray): number {
+    return this.testService.getMaxPrice(urls);
   }
 }

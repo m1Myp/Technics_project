@@ -3,6 +3,7 @@ export interface Info {
   product_name: string,
   product_manufacturer: string,
   product_category_ID: string,
+  product_characteristics: string,
   pictures: PicturesArray;
   urls: UrlArray;
 }

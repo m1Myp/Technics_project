@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TestService } from "../../test.service";
 import { InfoArray } from "../../test-contracts";
+import { ViewportScroller } from "@angular/common"
 
 @Component({
   selector: 'search-page',
@@ -25,7 +26,7 @@ export class SearchPage implements OnInit{
   POSTS: any;
 
   public searchString: string = '';
-  constructor (private route: ActivatedRoute, private testService: TestService) {
+  constructor (private route: ActivatedRoute, private testService: TestService, private viewport: ViewportScroller) {
     this.route.params.subscribe(data => {
       this.searchString = data['search'];
       this.searchItems(this.searchString, 0, this.sorting);
@@ -58,14 +59,17 @@ export class SearchPage implements OnInit{
   public onGoTo(page: number): void {
     this.current = page;
     this.searchItems(this.searchString, this.current - 1, this.sorting);
+    this.viewport.scrollToPosition([0, 0]);
   }
   public onNext(page: number): void {
     this.current = page + 1;
     this.searchItems(this.searchString, this.current - 1, this.sorting);
+    this.viewport.scrollToPosition([0, 0]);
   }
   public onPrevious(page: number): void {
     this.current = page - 1;
     this.searchItems(this.searchString, this.current - 1, this.sorting);
+    this.viewport.scrollToPosition([0, 0]);
   }
 
   public doSorting(sorting: string): void {

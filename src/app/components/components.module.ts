@@ -7,10 +7,11 @@ import { Optionwindow } from './optionwindow/optionwindow.component'
 import { SearchInputbar } from './search-inputbar/search-inputbar.component';
 import { BugReportComponent } from './bug-report/bug-report.component'
 import { ModalModule } from '../_modal/modal.module'
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [CategoriesAndBrands, Optionwindow, SearchInputbar, BugReportComponent],
-  imports: [CommonModule, RouterModule, ModalModule],
+  imports: [CommonModule, RouterModule, ModalModule, FormsModule],
   exports: [CategoriesAndBrands, Optionwindow, SearchInputbar, BugReportComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

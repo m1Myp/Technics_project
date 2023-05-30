@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TestService } from "../../test.service";
 import { InfoArray } from "../../test-contracts";
+import { ViewportScroller } from "@angular/common"
 
 @Component({
   selector: 'catalog-page',
@@ -25,7 +26,7 @@ export class CatalogPage implements OnInit{
   POSTS: any;
 
   public category: string = '';
-  constructor (private route: ActivatedRoute, private testService: TestService) {
+  constructor (private route: ActivatedRoute, private testService: TestService, private viewport: ViewportScroller) {
     this.route.params.subscribe(data => {
       this.category = data['category'];
     })
@@ -57,14 +58,18 @@ export class CatalogPage implements OnInit{
   public onGoTo(page: number): void {
     this.current = page;
     this.getItems(this.category, this.current - 1, this.sorting);
+    this.viewport.scrollToPosition([0, 0]);
+    
   }
   public onNext(page: number): void {
     this.current = page + 1;
     this.getItems(this.category, this.current - 1, this.sorting);
+    this.viewport.scrollToPosition([0, 0]);
   }
   public onPrevious(page: number): void {
     this.current = page - 1;
     this.getItems(this.category, this.current - 1, this.sorting);
+    this.viewport.scrollToPosition([0, 0]);
   }
 
   public doSorting(sorting: string): void {

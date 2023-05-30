@@ -9,19 +9,20 @@
     <div class="optionwindow-productblock">
       <span class="big-subtitle"><a href="/products/product-page/{{ element.product_ID }}" class="linkText">{{ element.product_name }}</a></span>
       <span class="grey-main-text"><span>Характеристики:</span></span>
-      <span class="main-text">{{ text }}</span>
+      <span class="main-text">{{ element.product_characteristics }}</span>
     </div>
     <form class="optionwindow-form"></form>
+
     <div class="optionwindow-priceblock">
       <div class="optionwindow-container1">
       <span class="small-subtitle"><span>Цена</span></span>
       <div class="optionwindow-container2">
-      <span class="small-subtitle"><span>от {{getMinPrice(element.urls)}} руб</span></span>
-      <span class="small-subtitle"><span>до {{getMaxPrice(element.urls)}} руб</span></span>
+      <span class="small-subtitle"><span>от {{ getMinPrice(element.urls) }} руб</span></span>
+      <span class="small-subtitle"><span>до {{ getMaxPrice(element.urls) }} руб</span></span>
       </div>
       </div>
       <div class="optionwindow-frame14">
-        <div class="optionwindow-frame2" *ngFor="let url of element.urls">
+        <div class="optionwindow-frame2" *ngFor="let url of urlsToShow">
           <span class="small-text">
             <span> <a href="{{ url.product_URL }}" target="_blank">{{ url.product_shop }}</a> </span>
           </span>
@@ -37,5 +38,6 @@
         </div>
       </div>
     </div>
+    
   </div>
 </div>

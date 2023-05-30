@@ -23,28 +23,6 @@
   position: absolute;
   align-self: center;
 }
-.product-page-productblock {
-  top: 215px;
-  left: 0px;
-  width: 100%;
-  height: 660px;
-  display: flex;
-  padding: 0;
-  position: absolute;
-  align-self: auto;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 1;
-  border-color: transparent;
-  border-style: none;
-  border-width: 0;
-  margin-right: 0;
-  border-radius: 0px 0px 0px 0px;
-  margin-bottom: 0;
-  flex-direction: row;
-  justify-content: flex-start;
-  background-color: rgba(30, 39, 75, 0.8);
-}
 .product-page-goodsmenubuttons {
   top: 165px;
   left: 255px;
@@ -132,33 +110,85 @@
   margin-bottom: 0;
   text-decoration: none;
 }
-.product-page-imageblock {
-  top: 246px;
-  left: 187px;
-  width: 1080px;
-  height: 590px;
+.product-page-productblock {
+  top: 180px;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  display:flex;
+  padding: 0;
   position: absolute;
+  align-self: auto;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 1;
+  border-color: transparent;
+  border-style: none;
+  border-width: 0;
+  margin-right: 0;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 0;
+  justify-content: flex-start;
+  background-color: rgba(30, 39, 75, 0.8);
+  margin-bottom: 150px;
+}
+.product-page-imageblock {
+  width: 100%;
+  height: auto;
+  padding: 5vmin;
+  margin: 50px;
+  position: relative;
+  align-self: stretch;
   border-color: transparent;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-rows: max-content auto;
+  row-gap: 2vmin;
+}
+.product-page-container2 {
+  width: 100%;
+  height: auto;
+  position: relative;
+  align-self: stretch;
+  border-color: transparent;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-auto-flow: row;
+  column-gap: 2vmin;
 }
 .product-page-imageblock1 {
-  top: 317px;
-  left: 208px;
-  width: 227px;
-  height: 210px;
-  position: absolute;
+  width: 30vh;
+  height: 30vh;
+  position: relative;
   border-color: transparent;
   object-fit: contain;
   border-radius: 10px;
 }
+.product-page-container1 {
+  width: 100%;
+  min-width: 30vh;
+  height: auto;
+  position: relative;
+  display: grid;
+  grid-template-rows: min-content auto;
+  justify-content: center;
+  row-gap: 2vmin;
+}
+@media screen and (max-width: 660px) {
+  .product-page-container2 {
+    grid-auto-flow: column;
+    grid-template-rows: max-content auto;
+    grid-template-columns: none;
+    row-gap: 2vmin;
+  }
+}
 .product-page-text04 {
-  top: 265px;
-  left: 208px;
   color: rgba(0, 0, 0, 1);
   height: auto;
-  width: 1040px;
-  position: absolute;
+  width: 100%;
+  position: relative;
   font-size: 22px;
   align-self: auto;
   font-style: Medium;
@@ -175,11 +205,10 @@
   color: rgba(0, 0, 0, 1);
 }
 .product-page-text07 {
-  top: 328px;
-  left: 480px;
   color: rgba(99, 81, 208, 1);
+  width: auto;
   height: auto;
-  position: absolute;
+  position: relative;
   font-size: 20px;
   align-self: auto;
   font-style: Regular;
@@ -425,6 +454,63 @@
   height: 23px;
   margin: auto;
   position: absolute;
+}
+
+
+
+.optionwindow-priceblock {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vmin;
+}
+.optionwindow-container1 {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: stretch;
+  justify-content: space-between;
+}
+.optionwindow-container2 {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: flex-start;
+  gap: 5px;
+}
+.optionwindow-frame14 {
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 7px;
+}
+.optionwindow-frame2 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  border-color: transparent;
+  justify-content: space-between;
+}
+.optionwindow-texthighlightbutton {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 

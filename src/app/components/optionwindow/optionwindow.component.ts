@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { Info, UrlArray } from '../../test-contracts'
+import { TestService } from '../../test.service'
 
 @Component({
   selector: 'app-optionwindow',
   templateUrl: 'optionwindow.component.html',
   styleUrls: ['optionwindow.component.css'],
 })
-export class Optionwindow {
+export class Optionwindow implements OnInit {
   @Input()
   text: string = 'Скоро появятся... :)'
   @Input()
@@ -20,25 +21,19 @@ export class Optionwindow {
   @Input()
   element!: Info
 
-  constructor() {}
+  urlsToShow!: UrlArray;
+
+  constructor(private testService: TestService) {
+  }
+  ngOnInit(): void {
+    this.urlsToShow = this.element.urls.slice(0,3);
+  }
 
   public getMinPrice(urls: UrlArray): number {
-    var len = urls.length, min = Infinity;
-    while (len--) {
-      if (Number(urls[len].cost.product_cost) < min) {
-        min = Number(urls[len].cost.product_cost);
-      }
-    }
-    return min;
+    return this.testService.getMinPrice(urls);
   }
 
   public getMaxPrice(urls: UrlArray): number {
-    var len = urls.length, max = -Infinity;
-    while (len--) {
-      if (urls[len].cost.product_cost > max) {
-        max = urls[len].cost.product_cost;
-      }
-    }
-    return max;
+    return this.testService.getMaxPrice(urls);
   }
 }

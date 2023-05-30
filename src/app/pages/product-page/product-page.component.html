@@ -2,59 +2,76 @@
 background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
 <div class="product-page-container">
   <div class="product-page-frame-productpage">
-    <div class="product-page-productblock"></div>
-    <button class="product-page-goodsmenubuttons">
-      <button class="product-page-brandsbutton">
-        <img
-          alt="brandsrectangleI293"
-          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/732ddf45-14b8-495e-ba39-92217d288e4b/90db8ac2-14e7-40c3-809e-801bb49688e9?org_if_sml=16336"
-          class="product-page-brandsrectangle"
-        />
-        <span class="product-page-text"><span>где купить</span></span>
-      </button>
-      <button class="product-page-categoriesbutton">
-        <img
-          alt="categoriesrectangleI293"
-          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/732ddf45-14b8-495e-ba39-92217d288e4b/00f42bba-ed3f-434a-ac30-e2012a528d8f?org_if_sml=110747"
-          class="product-page-categoriesrectangle"
-        />
-        <span class="product-page-text02"><span>описание</span></span>
-      </button>
+
+  <header class="product-page-frame-header">
+    <button class="product-page-menuburgerbutton">
+      <img
+        alt="MainmenuI278"
+        src="/assets/playground_assets/mainmenui278-di79-200h.png"
+        class="product-page-mainmenu"
+      />
+      <img
+        alt="MenubuttonI293"
+        src="/assets/playground_assets/menubuttoni293-t8je.svg"
+        class="product-page-menubutton"
+      />
     </button>
-    <form class="product-page-imageblock"></form>
-    <img
-      src = "{{ productData.pictures[0].picture_URL }}"
-      class="product-page-imageblock1"
-    />
-    <span class="product-page-text04">
-      {{ productData.product_name }}
-    </span>
-    <span class="product-page-text07"><span>Цена</span></span>
-    <span class="product-page-text09"><span> {{ productData.urls[0].cost.product_cost }} руб</span></span>
-    <span class="product-page-text13"><span>Описание</span></span>
-    <header class="product-page-frame-header">
-      <button class="product-page-menuburgerbutton">
-        <img
-          alt="MainmenuI278"
-          src="/assets/playground_assets/mainmenui278-di79-200h.png"
-          class="product-page-mainmenu"
-        />
-        <img
-          alt="MenubuttonI293"
-          src="/assets/playground_assets/menubuttoni293-t8je.svg"
-          class="product-page-menubutton"
-        />
-      </button>
-      <button class="product-page-logobutton">
-        <a href="/" class="product-page-text15"><span>technics nearby.</span></a>
-      </button>
-      <span class="product-page-text17"><span>войти</span></span>
-    </header>
+    <button class="product-page-logobutton">
+      <a href="/" class="product-page-text15"><span>technics nearby.</span></a>
+    </button>
+    <span class="product-page-text17"><span>войти</span></span>
+  </header>
+  
+  <search-inputbar rootClassName="search-inputbar"></search-inputbar>  
+
+
+    <div class="product-page-productblock">
+      <form class="product-page-imageblock">
+
+        <span class="product-page-container2">
+          <img *ngIf="productData.pictures[0]"
+            src = "{{ productData.pictures[0].picture_URL}}"
+            class="product-page-imageblock1"
+          />
+  
+          <span class="product-page-container1">
+          <span class="product-page-text04">
+            {{ productData.product_name }}
+          </span>
+  
+            
+            <div class="optionwindow-priceblock">
+              <div class="optionwindow-container1">
+              <span class="small-subtitle"><span>Цена</span></span>
+              <div class="optionwindow-container2">
+              <span class="small-subtitle"><span>от {{ getMinPrice(productData.urls) }} руб</span></span>
+              <span class="small-subtitle"><span>до {{ getMaxPrice(productData.urls) }} руб</span></span>
+              </div>
+              </div>
+              <div class="optionwindow-frame14">
+                <div class="optionwindow-frame2" *ngFor="let url of productData.urls">
+                  <span class="small-text">
+                    <span> <a href="{{ url.product_URL }}" target="_blank">{{ url.product_shop }}</a> </span>
+                  </span>
+                  <span class="grey-main-text small-text">
+                    <span> {{ url.cost.product_cost }} руб</span>
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
+          </span>
+        </span>
+
+        <span class="small-subtitle">Описание</span>
+        <span class="main-text">{{ productData.product_characteristics }}</span>
+      </form>
+    </div>
     <form class="product-page-form"></form>
     
     <bug-report></bug-report> 
 
-    <search-inputbar rootClassName="search-inputbar"></search-inputbar>  
 
 
   </div>

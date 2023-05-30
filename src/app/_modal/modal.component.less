@@ -7,10 +7,13 @@ jw-modal {
     .jw-modal {
         /* modal container fixed across whole screen */
         position: fixed;
+        display: flex;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+        align-items: center;
+        justify-content: center;
 
         /* z-index must be higher than .jw-modal-background */
         z-index: 1000;
@@ -19,12 +22,15 @@ jw-modal {
         overflow: auto;
 
         .jw-modal-body {
-            width: auto;
+            position: relative;
+            width: 100%;
+            max-width: 700px;
             padding: 20px;
             background:white;
+            align-self: center;
 
             /* margin exposes part of the modal background */
-            margin: 80px;
+            margin: 50px;
         }
     }
 

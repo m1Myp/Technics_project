@@ -18,9 +18,10 @@ export class BugReportComponent implements OnInit {
   constructor(private modalService: ModalService, private testService: TestService) {
   }
 
-  onSubmit(email: string, message: string) {
+  public onSubmit(email: string, message: string) {
+    //this.testService.onSubmit(email, message);
     this.testService.sendBugReport(email, message);
-    //this.closeModal('bug-report');
+    this.closeModal('bug-report');
   }
 
   openModal(id: string) {
