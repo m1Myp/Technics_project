@@ -1,15 +1,8 @@
-from django.urls import path, include
-from rest_framework import routers
-from rest_framework.generics import ListCreateAPIView, ListAPIView
-from rest_framework.urlpatterns import format_suffix_patterns
+from django.urls import path, re_path
 
 from . import views
-from .models import Info
-from .serializers import Product_serializer
 
-# router = routers.DefaultRouter()
-# router.register(r'test', views.ProductsViewSet)
-# router.register(r'product//', views.ProductDetail.as_view())
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -24,5 +17,3 @@ urlpatterns = [
     path('api/v1/q=<str:search_query>', views.view_with_search),
     path('api/v1/q=<str:search_query>/p=<int:page>&sorting=<slug:sorting_type>', views.view_with_search_page_sort),
 ]
-
-# urlpatterns = format_suffix_patterns(urlpatterns)

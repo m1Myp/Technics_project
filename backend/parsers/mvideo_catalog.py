@@ -47,6 +47,7 @@ def get_data(url, category_name):
                         break
                 to_click = brand_box.find_element(By.CLASS_NAME, 'show-all')
                 if to_click.click() is None:
+                    time.sleep(1)
                     manufacturers = list(map(lambda x: x.text, brand_box.find_elements(By.CLASS_NAME, 'filter-name')))
 
             for i in range(6):

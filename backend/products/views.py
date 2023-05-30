@@ -1,5 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.mail import send_mail
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from backend.settings import EMAIL_HOST_USER
 from parsers.parse_catalogs import parse_catalogs
@@ -48,6 +50,7 @@ class ProductList(generics.ListAPIView):
     serializer_class = Product_serializer
 
 
+@api_view(['GET'])
 def view_product_by_id(request, product_id):
     product_id = int(product_id)
     product = Info.objects.filter(product_ID=product_id).first()
@@ -68,7 +71,7 @@ def view_product_by_id(request, product_id):
             break
     for i in range(len(urls)):
         urls[i]['availability'] = availability[urls[i]['product_URL']]
-    return JsonResponse(data, safe=False)
+    return Response(data)
 
 
 def view_default(request, category):
@@ -79,6 +82,7 @@ def view_with_filter(request, category, page):
     return view_with_filter_and_sort(request, category, page, 'min_price_asc')
 
 
+@api_view(['GET'])
 def view_with_filter_and_sort(request, category, page, sorting_type):
     category_id = Categories.objects.get(category_name=category).category_ID
     all_products = Info \
@@ -102,13 +106,14 @@ def view_with_filter_and_sort(request, category, page, sorting_type):
                 break
         products_data[i]['urls'] = urls
     data = {'products': products_data, 'total_count_products': len(all_products.all())}
-    return JsonResponse(data, safe=False)
+    return Response(data)
 
 
 def view_with_search(request, search_query):
     return view_with_search_page_sort(request, search_query, 0, 'min_price_asc')
 
 
+@api_view(['GET'])
 def view_with_search_page_sort(request, search_query, page, sorting_type):
     all_products = Info \
         .objects \
@@ -134,4 +139,4 @@ def view_with_search_page_sort(request, search_query, page, sorting_type):
                 break
         products_data[i]['urls'] = urls
     data = {'search_query': search_query, 'products': products_data, 'total_count_products': len(all_products.all())}
-    return JsonResponse(data, safe=False)
+    return Response(data)

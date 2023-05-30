@@ -72,10 +72,6 @@ def get_data(url, category_name):
                 time.sleep(1)
             driver.execute_script("window.scrollBy(0,-500);")
             time.sleep(2)
-            # write the html
-            # with open("index_selenium.html", "w", encoding="utf-8") as file:
-            #     file.write(driver.page_source)
-            # parse html using beautiful soup
 
             if total_pages_count == -1:
                 total_pages_count = int(driver.find_elements(By.CLASS_NAME, "app-catalog-h5nagc")[-1].text)
@@ -87,6 +83,7 @@ def get_data(url, category_name):
                         break
                 button = brand_box.find_element(By.CLASS_NAME, 'app-catalog-u45ylu')
                 driver.execute_script("arguments[0].click();", button)
+                time.sleep(1)
                 manufacturers = list(
                     map(lambda x: x.text, brand_box.find_elements(By.CLASS_NAME, 'app-catalog-1sylyko')))
 
