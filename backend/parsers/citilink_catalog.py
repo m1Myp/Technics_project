@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+# Set this variable to 0 if you want to parse just one page, otherwise set it to 1
 TESTING = 1
 
 
@@ -58,7 +59,7 @@ def get_data(url, category_name):
     total_products_count = 0
     print("[")
     try:
-        driver.get(url + "/?view_type=grid")
+        driver.get(url + "/?view_type=list")
         # for the while loop
         flag = True
         page_number = 1
@@ -67,7 +68,7 @@ def get_data(url, category_name):
         while flag:
             time.sleep(2)
             solve_captcha(driver)
-            for i in range(5):
+            for i in range(15):
                 driver.execute_script("window.scrollBy(0,1200)", "")
                 time.sleep(1)
             driver.execute_script("window.scrollBy(0,-500);")
@@ -92,7 +93,7 @@ def get_data(url, category_name):
 
             if page_number + 1 <= total_pages_count * TESTING:
                 page_number += 1
-                driver.get(url + "/?view_type=grid&p=" + str(page_number))
+                driver.get(url + "/?view_type=list&p=" + str(page_number))
             else:
                 # print('No next page')
                 print("]")
@@ -108,14 +109,17 @@ def get_data(url, category_name):
 # Returns count of parsed products
 def parse_html(src, url, category_name, total_products_count, manufacturers):
     soup = BeautifulSoup(src, "lxml")
-    laptop_boxes = soup.find_all('div', class_='e1ex4k9s0 app-catalog-1bogmvw e1loosed0')
+    laptop_boxes = soup.find_all('div', class_='e12wdlvo0 app-catalog-1bogmvw e1loosed0')
     for laptop in laptop_boxes:
         try:
-            name = laptop.find('div', class_='app-catalog-oacxam e1xes8vl0').a.get('title')
-            link = url + laptop.find('div', class_='app-catalog-oacxam e1xes8vl0').a.get('href')
-            price = laptop.find('span', class_='e1j9birj0 e106ikdt0 app-catalog-175fskm e1gjr6xo0').text
+            name = laptop.find('div', class_='app-catalog-1tp0ino e1an64qs0').a.get('title')
+            link = url + laptop.find('div', class_='app-catalog-1tp0ino e1an64qs0').a.get('href')
+            price = laptop.find('span', class_='e1j9birj0 e106ikdt0 app-catalog-j8h82j e1gjr6xo0').text
             pictures = list(
                 map(lambda x: x.get('src'), laptop.find('div', class_='app-catalog-lxji0k e153n9o30').find_all('img')))
+            characteristics = ', '.join(list(map(lambda x: x.text.strip()[:-1].replace(u'\xa0', u' '),
+                                                laptop.find_all('li', class_='app-catalog-12y5psc e4qu3682'))))
+
             product_info = {'name': name.strip(),
                             'url': 'https://www.' + link.strip(),
                             'cost': int(price.replace(" ", "")),
@@ -123,10 +127,12 @@ def parse_html(src, url, category_name, total_products_count, manufacturers):
                             'pictures': pictures,
                             'shop': 'Ситилинк',
                             'manufacturer': determine_manufacturer(name, manufacturers),
+                            'characteristics': characteristics,
                             }
             if total_products_count != 0:
                 print(",", end="")
             total_products_count += 1
+            # print(product_info)
             print(json.dumps(product_info))
         except:
             continue

@@ -16,7 +16,8 @@ def load_one_product(product_data):
     if not product:
         product = Info(product_category_ID=category,
                        product_name=product_data["name"],
-                       product_manufacturer=product_data["manufacturer"]
+                       product_manufacturer=product_data["manufacturer"],
+                       product_characteristics=product_data['characteristics']
                        )
         product.save()
 
@@ -64,7 +65,3 @@ def update_product_cost(product_data):
     cost_object = Cost.objects.filter(URL_ID=url).first()
     cost_object.product_cost = cost
     cost_object.save()
-
-# def delete_product_by_url(product_url):
-#     url = URL.objects.filter(product_URL=product_url)
-#     Info.objects.filter(product_url=url)

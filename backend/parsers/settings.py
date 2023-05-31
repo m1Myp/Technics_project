@@ -31,17 +31,17 @@ citilink_urls = {
 }
 
 eldorado_urls = {
-    'veb-kamery': ['https://www.eldorado.ru/c/veb-kamery'],
+    # 'veb-kamery': ['https://www.eldorado.ru/c/veb-kamery'],
     # 'vneshnie-diski': ['https://www.eldorado.ru/c/vneshnie-zhestkie-diski',
     #                    'https://www.eldorado.ru/c/vneshnie-nakopiteli-ssd'],
     # 'monitory': ['https://www.eldorado.ru/c/monitory'],
     # 'klaviatury': ['https://www.eldorado.ru/c/klaviatury'],
     # 'myshi': ['https://www.eldorado.ru/c/kompyuternye-myshi'],
-    # 'kovriki-dlya-myshi': ['https://www.mvideo.ru/komputernye-aksessuary-24/kovriki-dlya-myshi-2593'],
-    # 'naushniki': ['https://www.eldorado.ru/c/naushniki'],
-    # 'kabeli': ['https://www.eldorado.ru/c/kabeli-dlya-pc',
-    #            'https://www.eldorado.ru/c/kabeli-i-perekhodniki-dlya-audio',
-    #            'https://www.eldorado.ru/c/data-kabeli'],
-    # 'smart-chasy': ['https://www.eldorado.ru/c/umnye-chasy'],
-    # 'bloki-pitaniya': ['https://www.eldorado.ru/c/setevye-zaryadnye-ustroystva'],
+    'kovriki-dlya-myshi': ['https://www.eldorado.ru/c/kovriki-dlya-myshi'],
+#     'naushniki': ['https://www.eldorado.ru/c/naushniki'],
+#     'kabeli': ['https://www.eldorado.ru/c/kabeli-dlya-pc',
+#                'https://www.eldorado.ru/c/kabeli-i-perekhodniki-dlya-audio',
+#                'https://www.eldorado.ru/c/data-kabeli'],
+#     'smart-chasy': ['https://www.eldorado.ru/c/umnye-chasy'],
+#     'bloki-pitaniya': ['https://www.eldorado.ru/c/setevye-zaryadnye-ustroystva'],
 }

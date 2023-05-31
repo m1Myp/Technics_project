@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+# Set this variable to 0 if you want to parse just one page, otherwise set it to 1
 TESTING = 1
 
 
@@ -94,9 +95,14 @@ def parse_group(laptop_boxes, url, category_name, total_products_count, manufact
             name = laptop.find('div', class_='product-title product-title--list').a.text
             link = url + laptop.find('div', class_='product-title product-title--list').a.get('href')
             price = laptop.find('span', class_='price__main-value').text
-            # price = laptop.find('span', class_='price__main-value').text
             pictures = list(map(lambda img: img.get('src'),
                                 laptop.find_all('img', class_='product-picture__img product-picture__img--list')))
+            characteristics = ''
+            for characteristic in laptop.find_all('li', class_='product-feature-list__item product-feature-list__item--undefined ng-star-inserted'):
+                tmp = characteristic.find_all('span')
+                if characteristics != '':
+                    characteristics += ', '
+                characteristics += tmp[0].text.strip() + ": " + tmp[1].text.strip()
             product_info = {'name': name.strip(),
                             'url': "https://www." + link,
                             'cost': int(parse_price(price)),
@@ -104,10 +110,12 @@ def parse_group(laptop_boxes, url, category_name, total_products_count, manufact
                             'pictures': pictures,
                             'shop': 'М.Видео',
                             'manufacturer': determine_manufacturer(name, manufacturers),
+                            'characteristics': characteristics,
                             }
             if total_products_count != 0:
                 print(",", end="")
             total_products_count += 1
+            # print(product_info)
             print(json.dumps(product_info))
         except:
             continue

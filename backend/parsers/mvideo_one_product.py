@@ -5,6 +5,7 @@ import undetected_chromedriver
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 TESTING = 1
 
@@ -13,14 +14,19 @@ def get_data(url):
     # options and webdriver of our URL
     options = webdriver.ChromeOptions()
     # headless, we don't need it to actually show us the opened browser
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     # incognito not to flood your browser history with parsed pages
-    options.add_argument('--incognito')
+    # options.add_argument('--incognito')
     # create our driver using undetected_chromedriver to avoid antibot defense
     driver = undetected_chromedriver.Chrome(options=options)
     # the process of collecting data using selenium
     try:
         driver.get(url + '/shopdirections')
+        time.sleep(2)
+        driver.find_element(By.CLASS_NAME, 'location-text').click()
+        for loc in driver.find_elements(By.CLASS_NAME, 'location-select__location'):
+            if loc.text == "Новосибирск":
+                loc.click()
         time.sleep(2)
         parse_html(driver.page_source)
     except Exception as ex:

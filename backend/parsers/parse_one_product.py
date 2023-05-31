@@ -5,7 +5,7 @@ import json
 
 from products.tools.work_with_db import update_product_cost
 
-TESTING = True
+TESTING = False
 
 
 def parse_one_product(url):
@@ -28,6 +28,12 @@ def parse_one_product(url):
                       'date': '31 мая'}]
             update_product_cost({'url': url, 'cost': 1234})
             return {'cost': 4312, 'availability': avail}
+    if url.startswith('https://www.eldorado.ru'):
+        avail = [{'shop_name': 'Sorry, we don\'t have parser yet for this site',
+                  'shop_place': '',
+                  'date': 'soon'},
+                 ]
+        return {'cost': -1, 'availability': avail}
     script_name = ''
     if url.startswith('https://www.mvideo.ru'):
         script_name = 'mvideo_one_product.py'
