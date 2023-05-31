@@ -1,0 +1,50 @@
+<body style="background-color: #0C0D18; background-image: url(/assets/playground_assets/pastedimage-42p-2400h.png);
+background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
+<div class="search-page-container">
+  <div class="search-page-frame-searchpage">
+    <header class="search-page-frame-header">
+      <button class="search-page-menuburgerbutton">
+        <img
+          alt="MainmenuI278"
+          src="/assets/playground_assets/mainmenui278-di79-200h.png"
+          class="search-page-mainmenu"
+        />
+        <img
+          alt="MenubuttonI293"
+          src="/assets/playground_assets/menubuttoni293-t8je.svg"
+          class="search-page-menubutton"
+        />
+      </button>
+      <button class="search-page-logobutton">
+        <a href="/" class="search-page-text"><span>technics nearby.</span></a>
+      </button>
+      <span class="search-page-text02"><span>войти</span></span>
+    </header>
+    
+    <bug-report></bug-report> 
+
+    <search-inputbar rootClassName="search-inputbar" searchValue="{{searchString}}"></search-inputbar> 
+    
+    
+    <span class="menu-container">
+
+      <dropdown-list (doSorting)="doSorting($event)" style="width: 100%;max-height: 50px;"></dropdown-list>
+
+      <div class="optionmenu">
+        <div class="search-page-menu-container">
+          <app-optionwindow rootClassName="optionwindow-optionwindow"  *ngFor="let element of itemsToDisplay" [element]="element">
+          </app-optionwindow>
+        </div>
+        <div class="d-flex text-white justify-content-center">
+          <app-pagination 
+          [current]="current" [total]="total" (goTo)="onGoTo($event)" (next)="onNext($event)" (previous)="onPrevious($event)">
+          </app-pagination>
+        </div>
+      </div>
+
+    </span>
+    
+    <form class="search-page-form"></form>
+  </div>
+</div>
+</body>

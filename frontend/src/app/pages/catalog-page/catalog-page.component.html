@@ -1,0 +1,51 @@
+<body style="background-color: #0C0D18; background-image: url(/assets/playground_assets/pastedimage-42p-2400h.png);
+background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
+<div class="catalog-page-container">
+  <div class="catalog-page-frame-searchpage">
+    <header class="catalog-page-frame-header">
+      <button class="catalog-page-menuburgerbutton">
+        <img
+          alt="MainmenuI278"
+          src="/assets/playground_assets/mainmenui278-di79-200h.png"
+          class="catalog-page-mainmenu"
+        />
+        <img
+          alt="MenubuttonI293"
+          src="/assets/playground_assets/menubuttoni293-t8je.svg"
+          class="catalog-page-menubutton"
+        />
+      </button>
+      <button class="catalog-page-logobutton">
+        <a href="/" class="catalog-page-text"><span>technics nearby.</span></a>
+      </button>
+      <span class="catalog-page-text02"><span>войти</span></span>
+    </header>
+
+    <bug-report style="position: relative;"></bug-report> 
+
+    <search-inputbar rootClassName="search-inputbar"></search-inputbar> 
+
+
+    <span class="menu-container">
+
+      <dropdown-list (doSorting)="doSorting($event)" style="width: 100%;max-height: 50px;"></dropdown-list>
+      
+      <div class="optionmenu">
+        <div class="catalog-page-menu-container">
+          <app-optionwindow rootClassName="optionwindow-optionwindow" *ngFor="let element of itemsToDisplay" [element]="element">
+          </app-optionwindow>
+        </div>
+        <div class="catalog-page-menu-container2">
+          <app-pagination 
+          [current]="current" [total]="total" (goTo)="onGoTo($event)" (next)="onNext($event)" (previous)="onPrevious($event)">
+          </app-pagination>    
+        </div>
+      </div>
+
+    </span>
+
+
+    <form class="catalog-page-form"></form>
+  </div>
+</div>
+</body>

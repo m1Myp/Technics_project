@@ -1,0 +1,231 @@
+:host { 
+    display: contents; 
+  }
+  .catalog-page-container {
+    min-height: 100vh;
+  }
+  .catalog-page-frame-searchpage {
+    width: 100%;
+    height: auto;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 410px;
+  }
+  .catalog-page-pasted-image {
+    top: 117px;
+    left: 0px;
+    right: 0px;
+    width: 1440px;
+    margin: auto;
+    position: absolute;
+    align-self: center;
+  }
+  .catalog-page-frame-header {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding: 0;
+    position: fixed;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: stretch;
+    flex-shrink: 1;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+    z-index: 20;
+  }
+  .catalog-page-menuburgerbutton {
+    top: 0px;
+    left: 0px;
+    width: 105px;
+    bottom: 0px;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-self: flex-start;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+  }
+  .catalog-page-mainmenu {
+    top: 0px;
+    right: 0px;
+    width: 105px;
+    height: 50px;
+    margin: auto;
+    position: absolute;
+    border-color: transparent;
+  }
+  .catalog-page-menubutton {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 21px;
+    bottom: 0px;
+    height: 21px;
+    margin: auto;
+    position: absolute;
+  }
+  .catalog-page-logobutton {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 264px;
+    bottom: 0px;
+    height: 66px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+  }
+  .catalog-page-text {
+    top: 15px;
+    left: 0px;
+    color: rgba(255, 255, 255, 1);
+    right: 0px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    font-size: 26px;
+    align-self: auto;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Montserrat Alternates;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .catalog-page-text02 {
+    top: 0px;
+    color: rgba(255, 255, 255, 1);
+    right: 35px;
+    width: auto;
+    bottom: 0px;
+    height: 20px;
+    margin: auto;
+    position: absolute;
+    font-size: 16px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: 500;
+    line-height: normal;
+    padding-top: 0px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .catalog-page-searchinputbar {
+    top: 45px;
+    max-width: 860px;
+    min-width: 330px;
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    flex-shrink: 0;
+    border-radius: 20px;
+  }
+  .catalog-page-textinput {
+    left: 0px;
+    border-style: none;
+    width: 85%;
+    height: 40px;
+    position: absolute;
+    font-size: 15;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: normal;
+    padding-top: 0px;
+    padding-left: var(--dl-space-space-oneandhalfunits);
+    border-radius: 20px;
+    padding-right: 7%;
+    padding-bottom: 0px;
+    text-transform: none;
+    text-decoration: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .catalog-page-searchbutton {
+    top: 0px;
+    left: 80%;
+    max-width: 100px;
+    min-width: 80px;
+    width: 20%;
+    bottom: 0px;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 20px;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, rgb(189, 195, 199) 0.00%,rgb(47, 28, 158) 0.00%,rgb(99, 81, 208) 100.00%);
+  }
+  .catalog-page-search {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 24px;
+    bottom: 0px;
+    height: 23px;
+    margin: auto;
+    position: absolute;
+  }
+  .catalog-page-menu-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: 35px;
+  }
+  .catalog-page-menu-container2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-start;
+  }  
+  
+  
+  
+  textarea:focus, input:focus{
+    outline: none;
+  }
+  
+  ul {
+    padding-left: 0;
+    list-style-type:none;
+  }
+  
+  a.text:active, a.text:hover, a.text {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }

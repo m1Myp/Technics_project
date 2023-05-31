@@ -1,0 +1,88 @@
+<body style="background-color: #0C0D18; background-image: url(/assets/playground_assets/pastedimage-42p-2400h.png);
+background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
+<div class="product-page-container">
+  <div class="product-page-frame-productpage">
+
+  <header class="product-page-frame-header">
+    <button class="product-page-menuburgerbutton">
+      <img
+        alt="MainmenuI278"
+        src="/assets/playground_assets/mainmenui278-di79-200h.png"
+        class="product-page-mainmenu"
+      />
+      <img
+        alt="MenubuttonI293"
+        src="/assets/playground_assets/menubuttoni293-t8je.svg"
+        class="product-page-menubutton"
+      />
+    </button>
+    <button class="product-page-logobutton">
+      <a href="/" class="product-page-text15"><span>technics nearby.</span></a>
+    </button>
+    <span class="product-page-text17"><span>войти</span></span>
+  </header>
+  
+  <search-inputbar rootClassName="search-inputbar"></search-inputbar>  
+
+
+    <div class="product-page-productblock">
+      <form class="product-page-imageblock">
+
+        <span class="product-page-container2">
+          <img *ngIf="productData.pictures[0]"
+            src = "{{ productData.pictures[0].picture_URL}}"
+            class="product-page-imageblock1"
+          />
+  
+          <span class="product-page-container1">
+          <span class="product-page-text04">
+            {{ productData.product_name }}
+          </span>
+  
+            
+            <div class="optionwindow-priceblock">
+              <div class="optionwindow-container1">
+              <span class="small-subtitle" style="color: #682fb6;"><span>Цена</span></span>
+              <div class="optionwindow-container2">
+              <span class="small-subtitle" style="color: #682fb6;"><span>от {{ getMinPrice(productData.urls) }} руб</span></span>
+              <span class="small-subtitle" style="color: #682fb6;"><span>до {{ getMaxPrice(productData.urls) }} руб</span></span>
+              </div>
+              </div>
+              <div class="optionwindow-frame14">
+                <div class="optionwindow-frame2" *ngFor="let url of productData.urls">
+                  <span class="small-text">
+                    <span> <a href="{{ url.product_URL }}" target="_blank">{{ url.product_shop }}</a> </span>
+                  <span class="main-text small-text" style="color: #682fb6;">
+                    <span> {{ url.cost.product_cost }} руб</span>
+                  </span>
+                  </span>
+                  
+                <div class="optionwindow-frame2" *ngFor="let avl of url.availability">
+                  <span class="main-text small-text">
+                    <span> {{ avl.shop_name }}</span>
+                  </span>
+                  <span class="grey-main-text small-text">
+                    <span> {{ avl.shop_place }}</span>
+                  </span>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </span>
+        </span>
+
+        <span class="small-subtitle">Описание</span>
+        <span class="main-text">{{ productData.product_characteristics }}</span>
+      </form>
+    </div>
+    <form class="product-page-form"></form>
+    
+    <bug-report></bug-report> 
+
+
+
+  </div>
+</div>
+</body>
