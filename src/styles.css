@@ -129,7 +129,7 @@
   top: 175px;
   width: 100%;
   height: auto;
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

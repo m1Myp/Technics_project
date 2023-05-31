@@ -11,16 +11,15 @@
 }
 .main-page-frame-mainpage {
   width: 100%;
-  min-height: 2500px;
-  height: fit-content;
+  height: auto;
   display: flex;
   overflow: hidden;
-  position: relative;
   align-items: center;
   flex-shrink: 0;
   border-color: transparent;
   flex-direction: column;
   justify-content: flex-start;
+  padding-bottom: 410px;
 }
 .main-page-pasted-image {
   width: 1440px;
@@ -33,7 +32,6 @@
   align-self: center;
 }
 .main-page-goods {
-  top: 215px;
   left: 0px;
   width: 100vw;
   height: fit-content;
@@ -44,7 +42,6 @@
   row-gap: 20px;
   column-gap: 70px;
   padding: 0;
-  position: absolute;
   align-self: auto;
   box-sizing: border-box;
   align-items: center;

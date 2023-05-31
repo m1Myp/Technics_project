@@ -2,7 +2,7 @@
   display: contents; 
 }
 .categories-and-brands-container {
-  width: 462px;
+  width: auto;
   height: 50px;
   display: flex;
   position: relative;
@@ -66,7 +66,6 @@
   text-decoration: none;
 }
 .categories-and-brands-root-class-name {
-  top: 165px;
-  left: 255px;
-  position: absolute;
+  left: 50%;
+  position: relative;
 }
