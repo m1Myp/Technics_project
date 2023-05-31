@@ -42,20 +42,29 @@ background-repeat: no-repeat; background-position: center center; background-att
             
             <div class="optionwindow-priceblock">
               <div class="optionwindow-container1">
-              <span class="small-subtitle"><span>Цена</span></span>
+              <span class="small-subtitle" style="color: #682fb6;"><span>Цена</span></span>
               <div class="optionwindow-container2">
-              <span class="small-subtitle"><span>от {{ getMinPrice(productData.urls) }} руб</span></span>
-              <span class="small-subtitle"><span>до {{ getMaxPrice(productData.urls) }} руб</span></span>
+              <span class="small-subtitle" style="color: #682fb6;"><span>от {{ getMinPrice(productData.urls) }} руб</span></span>
+              <span class="small-subtitle" style="color: #682fb6;"><span>до {{ getMaxPrice(productData.urls) }} руб</span></span>
               </div>
               </div>
               <div class="optionwindow-frame14">
                 <div class="optionwindow-frame2" *ngFor="let url of productData.urls">
                   <span class="small-text">
                     <span> <a href="{{ url.product_URL }}" target="_blank">{{ url.product_shop }}</a> </span>
-                  </span>
-                  <span class="grey-main-text small-text">
+                  <span class="main-text small-text" style="color: #682fb6;">
                     <span> {{ url.cost.product_cost }} руб</span>
                   </span>
+                  </span>
+                  
+                <div class="optionwindow-frame2" *ngFor="let avl of url.availability">
+                  <span class="main-text small-text">
+                    <span> {{ avl.shop_name }}</span>
+                  </span>
+                  <span class="grey-main-text small-text">
+                    <span> {{ avl.shop_place }}</span>
+                  </span>
+                </div>
                 </div>
                 
               </div>

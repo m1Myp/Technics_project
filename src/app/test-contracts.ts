@@ -18,11 +18,13 @@ export interface Url {
   cost: Cost;
   product_URL: string;
   product_shop: string;
+  availability: AvailabilityArray;
 }
 export interface UrlArray extends Array<Url> { }
 
 export interface Cost {
   product_cost: number;
+  availability: string;
 }
 
 export interface Category {
@@ -33,3 +35,10 @@ export interface PageResponse {
   products: InfoArray;
   total_count_products: number;
 }
+
+export interface Availability {
+  shop_name: string;
+  shop_place: string;
+  date: string;
+}
+export interface AvailabilityArray extends Array<Availability> { }
