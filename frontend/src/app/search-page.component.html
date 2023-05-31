@@ -1,0 +1,197 @@
+<div class="frame-searchpage-container">
+  <div class="frame-searchpage-frame-searchpage">
+    <img
+      alt="pastedImage"
+      src="/assets/playground_assets/pastedimage-42p-2400h.png"
+      class="frame-searchpage-pasted-image"
+    />
+    <img
+      alt="IMAGEFooter2713"
+      src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/732ddf45-14b8-495e-ba39-92217d288e4b/8770c4d5-3fc7-424f-b7d6-e5b6014029c1?org_if_sml=135797"
+      class="frame-searchpage-i-m-a-g-e-footer"
+    />
+    <div class="frame-searchpage-frame-header">
+      <button class="frame-searchpage-menuburgerbutton">
+        <img
+          alt="MainmenuI278"
+          src="/assets/playground_assets/mainmenui278-di79-200h.png"
+          class="frame-searchpage-mainmenu"
+        />
+        <img
+          alt="MenubuttonI278"
+          src="/assets/playground_assets/menubuttoni278-ptu.svg"
+          class="frame-searchpage-menubutton"
+        />
+      </button>
+      <button class="frame-searchpage-logobutton">
+        <span class="frame-searchpage-text"><span>technics nearby.</span></span>
+      </button>
+      <span class="frame-searchpage-text02"><span>войти</span></span>
+    </div>
+    <div class="frame-searchpage-optionmenu">
+      <div class="frame-searchpage-menu-container">
+
+
+        <div class="optionwindow-optionwindow" *ngFor="let element of productData | paginate : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        };
+        let i = index">
+          <div class="optionwindow-priceblock">
+            <span class="optionwindow-text"><span>Цена</span></span>
+            <span class="optionwindow-text02"><span>от</span></span>
+            <span class="optionwindow-text04"><span>до</span></span>
+            <div class="optionwindow-frame14">
+              <div class="optionwindow-frame1">
+                <span class="optionwindow-text06 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text08 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <div class="optionwindow-frame2">
+                <span class="optionwindow-text10 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text12 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <div class="optionwindow-frame3">
+                <span class="optionwindow-text14 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text16 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <div class="optionwindow-frame4">
+                <span class="optionwindow-text18 MontserratText">
+                  <span>Магазин</span>
+                </span>
+                <span class="optionwindow-text20 MontserratText">
+                  <span>Цена</span>
+                </span>
+              </div>
+              <button class="optionwindow-texthighlightbutton">
+                <span class="optionwindow-text22"><span>Полный список</span></span>
+              </button>
+            </div>
+            <form class="optionwindow-form"></form>
+          </div>
+          <div class="optionwindow-productblock">
+            <span class="optionwindow-text24"><span>Характеристики:</span></span>
+            <span class="optionwindow-text26">{{ element.product_name }}</span>
+            <span class="optionwindow-text27">{{ text }}</span>
+          </div>
+          <form class="optionwindow-form1">
+            <img
+              [attr.alt]="image_alt"
+              [attr.src]="image_src"
+              class="optionwindow-image"
+            />
+          </form>
+        </div>
+        
+      </div>
+
+      <div class="d-flex text-white justify-content-center">
+        <pagination-controls
+          previousLabel="Назад"
+          nextLabel="Вперед"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
+
+
+    </div>
+    <div class="frame-searchpage-searchinputbar">
+      <button class="frame-searchpage-searchbutton">
+        <img
+          alt="Rectangle3I288"
+          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/732ddf45-14b8-495e-ba39-92217d288e4b/4e8db1ed-3416-4476-a3de-18616e91ebde?org_if_sml=13801"
+          class="frame-searchpage-rectangle3"
+        />
+        <img
+          alt="SearchI288"
+          src="/assets/playground_assets/searchi288-7f8.svg"
+          class="frame-searchpage-search"
+        />
+      </button>
+    </div>
+    <div
+      data-thq="thq-dropdown"
+      class="frame-searchpage-thq-dropdown list-item"
+    >
+      <div
+        data-thq="thq-dropdown-toggle"
+        class="frame-searchpage-dropdown-toggle"
+      >
+        <span class="frame-searchpage-text04">
+          <span>сортировать по</span>
+          <br />
+        </span>
+        <div
+          data-thq="thq-dropdown-arrow"
+          class="frame-searchpage-dropdown-arrow"
+        >
+          <svg viewBox="0 0 1024 1024" class="frame-searchpage-icon">
+            <path d="M426 726v-428l214 214z"></path>
+          </svg>
+        </div>
+      </div>
+      <ul data-thq="thq-dropdown-list" class="frame-searchpage-dropdown-list">
+        <li data-thq="thq-dropdown" class="frame-searchpage-dropdown list-item">
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="frame-searchpage-dropdown-toggle1"
+          >
+            <span class="frame-searchpage-text07">
+              <span>возрастанию цены</span>
+              <br />
+            </span>
+          </div>
+        </li>
+        <li
+          data-thq="thq-dropdown"
+          class="frame-searchpage-dropdown1 list-item"
+        >
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="frame-searchpage-dropdown-toggle2"
+          >
+            <span class="frame-searchpage-text10">убыванию цены</span>
+          </div>
+        </li>
+        <li
+          data-thq="thq-dropdown"
+          class="frame-searchpage-dropdown2 list-item"
+        >
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="frame-searchpage-dropdown-toggle3"
+          >
+            <span class="frame-searchpage-text11">производителю</span>
+          </div>
+        </li>
+        <li
+          data-thq="thq-dropdown"
+          class="frame-searchpage-dropdown3 list-item"
+        >
+          <div
+            data-thq="thq-dropdown-toggle"
+            class="frame-searchpage-dropdown-toggle4"
+          >
+            <span class="frame-searchpage-text12">
+              <span>продавцу</span>
+              <br />
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

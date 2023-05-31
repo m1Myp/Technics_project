@@ -1,0 +1,57 @@
+<div data-thq="thq-dropdown" class="dropdown-container">
+    <div data-thq="thq-dropdown-toggle" class="dropdown-toggle2">
+      <span class="main-text">
+        <span>сортировать по</span>
+        <br />
+      </span>
+      <div data-thq="thq-dropdown-arrow" class="dropdown-arrow">
+        <svg viewBox="0 0 1024 1024" class="icon">
+          <path d="M426 726v-428l214 214z"></path>
+        </svg>
+      </div>
+    </div>
+    <ul data-thq="thq-dropdown-list" class="dropdown-list" style="padding-left: 0px;">
+      <li data-thq="thq-dropdown" class="list-item dropdown">
+        <div
+          data-thq="thq-dropdown-toggle"
+          class="dropdown-toggle1"
+          (click)="setSorting('min_price_asc')"
+        >
+          <span class="main-text">
+            <span>возрастанию минимальной цены</span>
+            <br />
+          </span>
+        </div>
+      </li>
+      <li data-thq="thq-dropdown" class="dropdown1 list-item">
+        <div
+          data-thq="thq-dropdown-toggle"
+          class="dropdown-toggle1"
+          (click)="setSorting('max_price_asc')"
+        >
+        <span class="main-text">возрастанию максимальной цены</span>
+        </div>
+      </li>
+      <li data-thq="thq-dropdown" class="dropdown1 list-item">
+        <div
+          data-thq="thq-dropdown-toggle"
+          class="dropdown-toggle1"
+          (click)="setSorting('min_price_desc')"
+        >
+          <span class="main-text">убыванию минимальной цены</span>
+        </div>
+      </li>
+      <li data-thq="thq-dropdown" class="list-item dropdown1">
+        <div
+          data-thq="thq-dropdown-toggle"
+          class="dropdown-toggle3"
+          (click)="setSorting('max_price_desc')"
+        >
+          <span class="main-text">
+            <span>убыванию максимальной цены</span>
+            <br />
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
